@@ -1,0 +1,1 @@
+const ProjectsSection = () => <section>Projects Section</section>; export default ProjectsSection;
