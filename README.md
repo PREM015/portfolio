@@ -1,80 +1,36 @@
-# 🚀 PREM015's Portfolio Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-![License](https://img.shields.io/github/license/PREM015/portfolio?style=flat-square)
-![Made with React](https://img.shields.io/badge/Made_with-React-blue?style=flat-square\&logo=react)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-green?style=flat-square\&logo=node.js)
+## Getting Started
 
-![Portfolio Banner](https://raw.githubusercontent.com/PREM015/portfolio/main/assets/banner.png)
-
-Welcome to my **personal portfolio**!
-This is where I showcase my skills, projects, and journey as a passionate developer crafting digital experiences.
-
----
-
-## 👋 About Me
-
-Hello! I’m **PREM015**, a driven **Full-Stack Developer** with a love for clean code, creative problem solving, and beautiful UI/UX design.
-I build scalable and efficient web applications that solve real-world problems.
-
----
-
-## 🌟 Highlights
-
-* ⚡ **Fast, Responsive & Mobile-First Design**
-* 🎨 Modern UI/UX with intuitive navigation
-* 💼 Featured projects with live demos & source code
-* 📬 Contact form to get in touch easily
-* 🔧 Built with cutting-edge web technologies
-
----
-
-## 🛠️ Tech Stack
-
-| Frontend              | Backend          | Tools & Deployment            |
-| --------------------- | ---------------- | ----------------------------- |
-| HTML5, CSS3, JS       | Node.js, Express | Git, GitHub, VSCode           |
-| React / Vue / Angular | REST APIs        | Netlify, Vercel, GitHub Pages |
-
----
-
-## 🚀 Quick Start
-
-Clone this repo and get your dev environment ready in minutes:
+First, run the development server:
 
 ```bash
-git clone https://github.com/PREM015/portfolio.git
-cd portfolio
-npm install        # or yarn install
-npm start          # or yarn start
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser and watch the magic happen! ✨
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🎯 What’s Inside?
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-* **Home:** Introduction and quick links
-* **About Me:** Skills, education, and my story
-* **Projects:** Showcasing my best work with demos & GitHub links
-* **Contact:** Reach out via form or socials
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-## 📫 Let’s Connect!
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-I’m always excited to meet new people and collaborate. Reach out via:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-* ✉️ Email: [your.email@example.com](mailto:your.email@example.com)
-* 💼 LinkedIn: [linkedin.com/in/PREM015](https://linkedin.com/in/PREM015)
-* 🐦 Twitter: [@PREM015](https://twitter.com/PREM015)
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-*Thanks for stopping by — feel free to explore and reach out!* 🚀✨
-
----
-
-### 🔖 License
-
-This project is [MIT Licensed](LICENSE).
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
