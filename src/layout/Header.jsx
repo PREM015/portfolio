@@ -1,1 +1,0 @@
-const Header = () => <header>Layout Header</header>; export default Header;

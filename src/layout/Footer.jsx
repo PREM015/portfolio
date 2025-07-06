@@ -1,1 +1,0 @@
-const Footer = () => <footer>Layout Footer</footer>; export default Footer;

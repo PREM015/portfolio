@@ -1,1 +1,0 @@
-export const projects = []; // Add your projects here

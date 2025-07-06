@@ -1,1 +1,0 @@
-// Example Next.js page file (TS)
