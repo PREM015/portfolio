@@ -51,7 +51,6 @@ const useActiveSection = (sectionIds: string[]) => {
   return active;
 };
 
-// ✅ Navigation items
 const navItems = [
   { name: "Home", link: "/#home" },
   { name: "Projects", link: "#projects" },
@@ -61,7 +60,6 @@ const navItems = [
   { name: "Contact", link: "/contact" },
 ];
 
-// ✅ Logo component
 const NavbarLogo = () => (
   <Link
     href="#home"
@@ -80,22 +78,19 @@ const NavbarLogo = () => (
   </Link>
 );
 
-// ✅ Main Navbar Component
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection(navItems.map((item) => item.link));
 
   return (
-   <div className="fixed w-full z-50 top-0 left-0">
-
+    <div className="fixed w-full z-50 top-0 left-0">
       <GoogleFontImport />
 
       <AceternityNavbar className="top-0 z-50 bg-black backdrop-blur-lg border-b border-neutral-800 shadow-md">
-        {/* 🌌 Background Animation */}
-        <GlowingStarsBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
-
         {/* 🖥 Desktop Navbar */}
-        <NavBody className="relative z-10 py-4 min-h-[80px] px-4 sm:px-8 lg:px-16">
+        <NavBody className="relative z-10 py-4 min-h-[80px] px-4 sm:px-8 lg:px-16 overflow-hidden">
+          <GlowingStarsBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
+
           <NavbarLogo />
           <div className="hidden lg:flex items-center justify-center gap-1 text-sm font-marker font-medium">
             {navItems.map((item) => (
@@ -103,11 +98,10 @@ export default function Navbar() {
                 key={item.name}
                 href={item.link}
                 scroll={item.link.startsWith("#")}
-                className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeSection === item.link
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${activeSection === item.link
                     ? "text-white bg-blue-600 shadow-sm"
                     : "text-gray-300 hover:text-blue-400 hover:bg-blue-950/30"
-                }`}
+                  }`}
               >
                 {item.name}
               </Link>
@@ -124,10 +118,11 @@ export default function Navbar() {
         </NavBody>
 
         {/* 📱 Mobile Navbar */}
-        <MobileNav>
+        <MobileNav className="relative overflow-hidden">
+          <GlowingStarsBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
+
           <MobileNavHeader className="lg:hidden px-4 sm:px-8">
             <NavbarLogo />
-            {/* ✅ Hamburger Toggle Works */}
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -145,11 +140,10 @@ export default function Navbar() {
                   href={item.link}
                   scroll={item.link.startsWith("#")}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`w-full px-4 py-3 rounded-lg text-lg text-left transition-all duration-200 ${
-                    activeSection === item.link
+                  className={`w-full px-4 py-3 rounded-lg text-lg text-left transition-all duration-200 ${activeSection === item.link
                       ? "bg-blue-600 text-white shadow-md"
                       : "hover:bg-neutral-800 text-gray-300"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>
