@@ -4,8 +4,7 @@ import "./globals.css";
 import Navbar from "@/app/components/common/Navbar";
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Showcasing my work and skills",
+  
 };
 
 export default function RootLayout({
