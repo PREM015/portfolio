@@ -10,14 +10,14 @@ import {
   MobileNavMenu,
 } from "@/app/components/ui/resizable-navbar";
 import { useState, useEffect } from "react";
+import { GlowingStarsBackground } from "@/app/components/ui/glowing-stars-background"; // ✅ Background stars
 
 // ✅ Google Font Inject (Permanent Marker)
 const GoogleFontImport = () => (
   <style jsx global>{`
-    @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
+    @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
     .font-marker {
-      font-family: 'Permanent Marker', cursive;
+      font-family: "Permanent Marker", cursive;
     }
   `}</style>
 );
@@ -72,7 +72,7 @@ const NavbarLogo = () => (
       height={36}
       className="rounded-md transition-transform duration-300 group-hover:rotate-6"
     />
-    <span className="font-marker text-xl text-black group-hover:text-blue-600 group-hover:underline underline-offset-4 transition">
+    <span className="font-marker text-2xl tracking-wide text-gray-800 group-hover:text-blue-600 transition-all duration-300">
       PREM RAJ
     </span>
   </a>
@@ -88,21 +88,23 @@ export default function Navbar() {
       <GoogleFontImport />
 
       <AceternityNavbar
-        className="sticky top-0 z-50 bg-gradient-to-r from-blue-100 via-blue-200 to-indigo-100
-          backdrop-blur-xl border-b border-blue-200 shadow-md"
+        className="sticky top-0 z-50 overflow-hidden bg-black backdrop-blur-lg border-b border-neutral-800 shadow-md"
       >
+        {/* 🌌 Glowing Animated Background */}
+        <GlowingStarsBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
+
         {/* 🌐 Desktop Navbar */}
-        <NavBody className="py-6 min-h-[90px]">
+        <NavBody className="relative z-10 py-4 min-h-[80px] px-4 sm:px-8 lg:px-16">
           <NavbarLogo />
           <div className="hidden lg:flex items-center justify-center gap-1 text-sm font-marker font-medium">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.link}
-                className={`px-4 py-2 rounded-full transition duration-300 ${
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   activeSection === item.link
-                    ? "text-blue-600 font-bold bg-blue-100"
-                    : "text-gray-700 hover:text-blue-500"
+                    ? "text-white bg-blue-600 shadow-sm"
+                    : "text-gray-300 hover:text-blue-400 hover:bg-blue-950/30"
                 }`}
               >
                 {item.name}
@@ -110,7 +112,10 @@ export default function Navbar() {
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <NavbarButton variant="gradient" className="shadow-md">
+            <NavbarButton
+              variant="gradient"
+              className="shadow-md hover:scale-105 transition"
+            >
               Resume
             </NavbarButton>
           </div>
