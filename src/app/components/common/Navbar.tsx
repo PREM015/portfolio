@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import {
   Navbar as AceternityNavbar,
   NavBody,
@@ -29,7 +29,7 @@ const useActiveSection = (sectionIds: string[]) => {
   useEffect(() => {
     const handleScroll = () => {
       let current = "";
-      for (let id of sectionIds) {
+      for (const id of sectionIds) {
         const el = document.querySelector(id);
         if (el) {
           const rect = el.getBoundingClientRect();
@@ -65,13 +65,14 @@ const NavbarLogo = () => (
     href="#home"
     className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 group"
   >
-    <img
-      src="/image/computer.png"
-      alt="logo"
-      width={36}
-      height={36}
-      className="rounded-md transition-transform duration-300 group-hover:rotate-6"
-    />
+    <Image
+  src="/image/computer.png"
+  alt="logo"
+  width={36}
+  height={36}
+  className="rounded-md transition-transform duration-300 group-hover:rotate-6"
+/>
+
     <span className="font-marker text-2xl tracking-wide text-gray-800 group-hover:text-blue-600 transition-all duration-300">
       PREM RAJ
     </span>
@@ -101,11 +102,10 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.link}
-                className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeSection === item.link
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${activeSection === item.link
                     ? "text-white bg-blue-600 shadow-sm"
                     : "text-gray-300 hover:text-blue-400 hover:bg-blue-950/30"
-                }`}
+                  }`}
               >
                 {item.name}
               </a>
@@ -139,11 +139,10 @@ export default function Navbar() {
                 key={`mobile-${item.name}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-2 rounded-md transition-all duration-300 ${
-                  activeSection === item.link
+                className={`px-4 py-2 rounded-md transition-all duration-300 ${activeSection === item.link
                     ? "text-blue-600 font-bold bg-blue-50"
                     : "text-gray-700"
-                }`}
+                  }`}
               >
                 {item.name}
               </a>
