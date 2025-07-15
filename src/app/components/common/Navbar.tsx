@@ -1,5 +1,7 @@
 "use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import {
   Navbar as AceternityNavbar,
   NavBody,
@@ -10,7 +12,7 @@ import {
   MobileNavMenu,
 } from "@/app/components/ui/resizable-navbar";
 import { useState, useEffect } from "react";
-import { GlowingStarsBackground } from "@/app/components/ui/glowing-stars-background"; // ✅ Background stars
+import { GlowingStarsBackground } from "@/app/components/ui/glowing-stars-background";
 
 // ✅ Google Font Inject (Permanent Marker)
 const GoogleFontImport = () => (
@@ -51,67 +53,67 @@ const useActiveSection = (sectionIds: string[]) => {
 
 // ✅ Navigation items
 const navItems = [
-  { name: "Home", link: "#home" },
+  { name: "Home", link: "/#home" },
   { name: "Projects", link: "#projects" },
   { name: "Skills", link: "#skills" },
   { name: "Experience", link: "#experience" },
   { name: "About", link: "#about" },
-  { name: "Contact", link: "#contact" },
+  { name: "Contact", link: "/contact" },
 ];
 
 // ✅ Logo component
 const NavbarLogo = () => (
-  <a
+  <Link
     href="#home"
     className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 group"
   >
     <Image
-  src="/image/computer.png"
-  alt="logo"
-  width={36}
-  height={36}
-  className="rounded-md transition-transform duration-300 group-hover:rotate-6"
-/>
-
-    <span className="font-marker text-2xl tracking-wide text-gray-800 group-hover:text-blue-600 transition-all duration-300">
+      src="/image/computer.png"
+      alt="logo"
+      width={36}
+      height={36}
+      className="rounded-md transition-transform duration-300 group-hover:rotate-6"
+    />
+    <span className="font-marker text-2xl tracking-wide text-white group-hover:text-blue-400 transition-all duration-300">
       PREM RAJ
     </span>
-  </a>
+  </Link>
 );
 
-// ✅ Main Navbar component
+// ✅ Main Navbar Component
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection(navItems.map((item) => item.link));
 
   return (
-    <div className="relative w-full">
+   <div className="fixed w-full z-50 top-0 left-0">
+
       <GoogleFontImport />
 
-      <AceternityNavbar
-        className="sticky top-0 z-50 overflow-hidden bg-black backdrop-blur-lg border-b border-neutral-800 shadow-md"
-      >
-        {/* 🌌 Glowing Animated Background */}
+      <AceternityNavbar className="top-0 z-50 bg-black backdrop-blur-lg border-b border-neutral-800 shadow-md">
+        {/* 🌌 Background Animation */}
         <GlowingStarsBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
 
-        {/* 🌐 Desktop Navbar */}
+        {/* 🖥 Desktop Navbar */}
         <NavBody className="relative z-10 py-4 min-h-[80px] px-4 sm:px-8 lg:px-16">
           <NavbarLogo />
           <div className="hidden lg:flex items-center justify-center gap-1 text-sm font-marker font-medium">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.link}
-                className={`px-4 py-2 rounded-full transition-all duration-300 ${activeSection === item.link
+                scroll={item.link.startsWith("#")}
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                  activeSection === item.link
                     ? "text-white bg-blue-600 shadow-sm"
                     : "text-gray-300 hover:text-blue-400 hover:bg-blue-950/30"
-                  }`}
+                }`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
-          <div className="flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <NavbarButton
               variant="gradient"
               className="shadow-md hover:scale-105 transition"
@@ -123,38 +125,45 @@ export default function Navbar() {
 
         {/* 📱 Mobile Navbar */}
         <MobileNav>
-          <MobileNavHeader>
+          <MobileNavHeader className="lg:hidden px-4 sm:px-8">
             <NavbarLogo />
+            {/* ✅ Hamburger Toggle Works */}
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             />
           </MobileNavHeader>
+
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            {navItems.map((item) => (
-              <a
-                key={`mobile-${item.name}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-2 rounded-md transition-all duration-300 ${activeSection === item.link
-                    ? "text-blue-600 font-bold bg-blue-50"
-                    : "text-gray-700"
+            <div className="w-full flex flex-col gap-3 bg-neutral-950 text-white rounded-xl p-4 border border-neutral-800 shadow-xl font-marker">
+              {navItems.map((item) => (
+                <Link
+                  key={`mobile-${item.name}`}
+                  href={item.link}
+                  scroll={item.link.startsWith("#")}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`w-full px-4 py-3 rounded-lg text-lg text-left transition-all duration-200 ${
+                    activeSection === item.link
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "hover:bg-neutral-800 text-gray-300"
                   }`}
-              >
-                {item.name}
-              </a>
-            ))}
-            <div className="flex w-full flex-col gap-4 pt-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Resume
-              </NavbarButton>
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+              <div className="pt-4 border-t border-neutral-800 mt-4">
+                <NavbarButton
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  variant="gradient"
+                  className="w-full text-center"
+                >
+                  Resume
+                </NavbarButton>
+              </div>
             </div>
           </MobileNavMenu>
         </MobileNav>
