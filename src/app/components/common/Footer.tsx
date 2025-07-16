@@ -1,4 +1,3 @@
-// app/components/ui/footer.tsx
 "use client";
 
 import React from "react";
@@ -39,87 +38,69 @@ const Footer = () => {
       >
         <div className="w-full px-4 md:px-8 z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
-            {/* Skills */}
-            <div className="break-words max-w-full">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
-                Skills
-              </h6>
-              <ul className="space-y-2 text-sm font-light tracking-wide">
-                {["React", "Next.js", "Tailwind CSS", "TypeScript"].map((skill) => (
-                  <li key={skill}>
-                    <span className="hover:text-cyan-400 transition-colors duration-300">
-                      {skill}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Projects */}
-            <div className="break-words max-w-full">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
-                Projects
-              </h6>
-              <ul className="space-y-2 text-sm font-light tracking-wide">
-                {["Portfolio Website", "Music App", "E-commerce UI", "Open Source"].map((proj) => (
-                  <li key={proj}>
-                    <Link
-                      href="/projects"
-                      className="hover:text-cyan-400 hover:underline underline-offset-4 transition-colors duration-300"
-                    >
-                      {proj}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div className="break-words max-w-full">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
-                Resources
-              </h6>
-              <ul className="space-y-2 text-sm font-light tracking-wide">
-                <li>
-                  <Link href="/blog" className="hover:text-cyan-400 hover:underline underline-offset-4">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-cyan-400 hover:underline underline-offset-4">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/resume.pdf" target="_blank" className="hover:text-cyan-400 hover:underline underline-offset-4">
-                    Resume
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Socials */}
-            <div className="flex flex-col items-center sm:items-start">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
-                Follow Me
-              </h6>
-              <div className="flex gap-4 justify-center sm:justify-start">
-                <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
-                  <TwitterIcon />
-                </Link>
+            {/* About */}
+            <div className="max-w-md">
+              <p className="text-sm leading-relaxed mb-6">
+                Full Stack Developer crafting modern, performant UIs with React, TypeScript, and Next.js. Passionate about web performance and UX design.
+              </p>
+              <div className="flex justify-center sm:justify-start gap-4">
                 <Link href="https://github.com" target="_blank" aria-label="GitHub">
                   <GithubIcon />
                 </Link>
                 <Link href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
                   <LinkedInIcon />
                 </Link>
+                <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
+                  <TwitterIcon />
+                </Link>
               </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="break-words">
+              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
+                Navigation
+              </h6>
+              <ul className="space-y-2 text-sm font-light tracking-wide">
+                <li><Link href="/" className="hover:text-cyan-400 transition">Home</Link></li>
+                <li><Link href="/about" className="hover:text-cyan-400 transition">About</Link></li>
+                <li><Link href="/projects" className="hover:text-cyan-400 transition">Projects</Link></li>
+                <li><Link href="/contact" className="hover:text-cyan-400 transition">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div className="break-words">
+              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
+                Quick Links
+              </h6>
+              <ul className="space-y-2 text-sm font-light tracking-wide">
+                <li><Link href="/services" className="hover:text-cyan-400 transition">Services</Link></li>
+                <li><Link href="/skills" className="hover:text-cyan-400 transition">Skills</Link></li>
+                <li><Link href="/resume.pdf" target="_blank" className="hover:text-cyan-400 transition">Resume</Link></li>
+                <li><Link href="/faq" className="hover:text-cyan-400 transition">FAQs</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div className="break-words">
+              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
+                Contact
+              </h6>
+              <p className="text-sm mb-2">
+                <span className="text-cyan-400">Email</span><br />
+                contact@rajportfolio.dev
+              </p>
+              <p className="text-sm">
+                <span className="text-cyan-400">Based in</span><br />
+                India
+              </p>
             </div>
           </div>
 
           {/* Footer Bottom */}
           <div className="mt-12 border-t border-neutral-700 pt-6 text-center text-sm text-neutral-400 font-light">
-            © {new Date().getFullYear()} <span className="text-white font-semibold">Raj Portfolio</span>. Built with 💙 using Next.js.
+            © {new Date().getFullYear()} <span className="text-white font-semibold">Raj Portfolio</span>. Built with 💙 using Next.js, Tailwind, Shadcn UI & Aceternity UI.
           </div>
         </div>
       </Vortex>
