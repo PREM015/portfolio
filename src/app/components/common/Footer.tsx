@@ -1,3 +1,4 @@
+// app/components/ui/footer.tsx
 "use client";
 
 import React from "react";
@@ -28,18 +29,18 @@ const LinkedInIcon = () => (
 
 const Footer = () => {
   return (
-    <div className="w-full overflow-hidden mt-20">
+    <footer className="relative w-full overflow-hidden bg-black text-gray-300 mt-20">
       <Vortex
         backgroundColor="black"
-        className="flex flex-col items-center justify-between w-full px-4 py-16"
-        containerClassName="w-full"
+        className="flex flex-col items-center justify-center w-full px-4 py-16"
+        containerClassName="w-full max-w-7xl mx-auto relative"
         particleCount={600}
-        baseHue={200}
+        baseHue={210}
       >
-        <footer className="w-full max-w-7xl mx-auto text-gray-300 px-4 md:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center sm:text-left">
+        <div className="w-full px-4 md:px-8 z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
             {/* Skills */}
-            <div>
+            <div className="break-words max-w-full">
               <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
                 Skills
               </h6>
@@ -55,14 +56,17 @@ const Footer = () => {
             </div>
 
             {/* Projects */}
-            <div>
+            <div className="break-words max-w-full">
               <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
                 Projects
               </h6>
               <ul className="space-y-2 text-sm font-light tracking-wide">
                 {["Portfolio Website", "Music App", "E-commerce UI", "Open Source"].map((proj) => (
                   <li key={proj}>
-                    <Link href="/projects" className="hover:text-cyan-400 hover:underline underline-offset-4 transition-colors duration-300">
+                    <Link
+                      href="/projects"
+                      className="hover:text-cyan-400 hover:underline underline-offset-4 transition-colors duration-300"
+                    >
                       {proj}
                     </Link>
                   </li>
@@ -71,14 +75,26 @@ const Footer = () => {
             </div>
 
             {/* Resources */}
-            <div>
+            <div className="break-words max-w-full">
               <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
                 Resources
               </h6>
               <ul className="space-y-2 text-sm font-light tracking-wide">
-                <li><Link href="/blog" className="hover:text-cyan-400 hover:underline underline-offset-4">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-cyan-400 hover:underline underline-offset-4">Contact</Link></li>
-                <li><Link href="/resume.pdf" className="hover:text-cyan-400 hover:underline underline-offset-4" target="_blank">Resume</Link></li>
+                <li>
+                  <Link href="/blog" className="hover:text-cyan-400 hover:underline underline-offset-4">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-cyan-400 hover:underline underline-offset-4">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/resume.pdf" target="_blank" className="hover:text-cyan-400 hover:underline underline-offset-4">
+                    Resume
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -103,11 +119,11 @@ const Footer = () => {
 
           {/* Footer Bottom */}
           <div className="mt-12 border-t border-neutral-700 pt-6 text-center text-sm text-neutral-400 font-light">
-            © {new Date().getFullYear()} <span className="text-white font-semibold">Raj's Portfolio</span>. Built with 💙 using Next.js.
+            © {new Date().getFullYear()} <span className="text-white font-semibold">Raj Portfolio</span>. Built with 💙 using Next.js.
           </div>
-        </footer>
+        </div>
       </Vortex>
-    </div>
+    </footer>
   );
 };
 
