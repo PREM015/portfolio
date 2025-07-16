@@ -51,20 +51,19 @@ const useActiveSection = (sectionIds: string[]) => {
   return active;
 };
 
-// ✅ Navigation Items
+// ✅ Navigation Items (absolute URLs)
 const navItems = [
-  { name: "Home", link: "/#home" },
-  { name: "Projects", link: "#projects" },
-  { name: "Skills", link: "#skills" },
-  { name: "Experience", link: "#experience" },
-  { name: "About", link: "#about" },
+  { name: "Home", link: "/" },
+  { name: "Projects", link: "/projects" },
+  { name: "Skills", link: "/Skills" },
+  { name: "Experience", link: "/Experience" },
+  { name: "About", link: "/about" }, // ✅ Route to actual About Page
   { name: "Contact", link: "/contact" },
 ];
-
 // ✅ Logo
 const NavbarLogo = () => (
   <Link
-    href="#home"
+    href="/"
     className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 group"
   >
     <Image
@@ -100,7 +99,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.link}
-                scroll={item.link.startsWith("#")}
+                scroll={item.link.startsWith("/#")}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   activeSection === item.link
                     ? "text-white bg-blue-600 shadow-sm"
@@ -144,7 +143,7 @@ export default function Navbar() {
                 <Link
                   key={`mobile-${item.name}`}
                   href={item.link}
-                  scroll={item.link.startsWith("#")}
+                  scroll={item.link.startsWith("/#")}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`w-full px-4 py-3 rounded-lg text-lg text-left transition-all duration-200 ${
                     activeSection === item.link
