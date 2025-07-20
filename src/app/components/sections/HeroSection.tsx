@@ -30,10 +30,10 @@ const HeroSection = () => {
       </div>
 
       {/* Glowing Blobs */}
-<div className="absolute inset-0 -z-20 pointer-events-none">
-  <div className="absolute left-[35%] top-[-15%] w-[80vw] h-[80vw] bg-blue-500/20 rounded-full blur-[180px] animate-pulse" />
-  <div className="absolute left-1/4 bottom-[-10%] w-[60vw] h-[60vw] bg-indigo-600/20 rounded-full blur-[140px] animate-pulse delay-1000" />
-</div>
+      <div className="absolute inset-0 -z-20 pointer-events-none">
+        <div className="absolute left-[35%] top-[-15%] w-[80vw] h-[80vw] bg-blue-500/20 rounded-full blur-[180px] animate-pulse" />
+        <div className="absolute left-1/4 bottom-[-10%] w-[60vw] h-[60vw] bg-indigo-600/20 rounded-full blur-[140px] animate-pulse delay-1000" />
+      </div>
 
       {/* Content */}
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-20 pb-10 z-10">
@@ -94,24 +94,24 @@ const HeroSection = () => {
           </div>
         </div>
 
-       {/* Right Image with Futuristic Shape */}
-<div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 overflow-visible">
-  <div className="relative isolate w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-square bg-gradient-to-tr from-purple-600 via-indigo-700 to-purple-800 shadow-2xl rounded-[20%_50%_30%_50%/40%_30%_60%_50%] overflow-hidden transition-all duration-700 p-4 sm:p-6 md:p-8">
-    
-    {/* Glowing Orbs */}
-    <div className="absolute top-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-purple-400 blur-2xl rounded-full opacity-60 animate-pulse" />
-    <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-indigo-400 blur-2xl rounded-full opacity-60 animate-pulse delay-500" />
+        {/* Right Image with Futuristic Shape */}
+        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 overflow-visible">
+          <div className="relative isolate w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-square bg-gradient-to-tr from-purple-600 via-indigo-700 to-purple-800 shadow-2xl rounded-[20%_50%_30%_50%/40%_30%_60%_50%] overflow-hidden transition-all duration-700 p-4 sm:p-6 md:p-8">
 
-    {/* Profile Image */}
-    <Image
-      src="/image/profile1.png"
-      alt="Prem Raj"
-      fill
-      className="object-contain"
-      priority
-    />
-  </div>
-</div>
+            {/* Glowing Orbs */}
+            <div className="absolute top-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-purple-400 blur-2xl rounded-full opacity-60 animate-pulse" />
+            <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-indigo-400 blur-2xl rounded-full opacity-60 animate-pulse delay-500" />
+
+            {/* Profile Image */}
+            <Image
+              src="/image/profile1.png"
+              alt="Prem Raj"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
 
       </div>
     </section>
