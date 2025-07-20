@@ -94,24 +94,26 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Image with Futuristic Shape */}
-        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 overflow-visible">
-          <div className="relative isolate w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-square bg-gradient-to-tr from-purple-600 via-indigo-700 to-purple-800 shadow-2xl rounded-[20%_50%_30%_50%/40%_30%_60%_50%] overflow-hidden transition-all duration-700 p-4 sm:p-6 md:p-8">
+        {/* Right Side: Futuristic Profile with Glowing Effects */}
+<div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 px-4">
+  <div className="relative isolate w-[240px] sm:w-[300px] md:w-[360px] lg:w-[420px] aspect-[4/5] rounded-[38%_62%_63%_37%/30%_44%_56%_70%] shadow-[0_0_80px_#6b21a8] bg-gradient-to-br from-[#6D28D9] via-[#7C3AED] to-[#9333EA] overflow-hidden transition-all duration-700 p-3 sm:p-6 md:p-8 backdrop-blur-xl border border-purple-500/40">
 
-            {/* Glowing Orbs */}
-            <div className="absolute top-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-purple-400 blur-2xl rounded-full opacity-60 animate-pulse" />
-            <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-indigo-400 blur-2xl rounded-full opacity-60 animate-pulse delay-500" />
+    {/* Animated Floating Blobs */}
+    <div className="absolute -top-8 -left-8 w-20 h-20 bg-purple-400 opacity-60 blur-2xl rounded-full animate-ping" />
+    <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-indigo-500 opacity-50 blur-2xl rounded-full animate-pulse delay-300" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-pink-500 opacity-40 blur-3xl rounded-full animate-bounce delay-700" />
 
-            {/* Profile Image */}
-            <Image
-              src="/image/profile1.png"
-              alt="Prem Raj"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-        </div>
+    {/* Profile Image with clipping */}
+    <Image
+      src="/image/profile1.png"
+      alt="Prem Raj"
+      fill
+      className="object-cover scale-[1.15] grayscale-0 drop-shadow-xl saturate-150 hover:scale-[1.2] transition-transform duration-500 ease-in-out"
+      priority
+    />
+  </div>
+</div>
+
 
       </div>
     </section>
