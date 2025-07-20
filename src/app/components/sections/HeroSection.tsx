@@ -1,3 +1,4 @@
+// HeroSection.tsx
 "use client";
 
 import Image from "next/image";
@@ -18,7 +19,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative isolate z-0 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden min-h-screen">
-      {/* Starfield Canvas */}
+      {/* Stars Canvas */}
       <div className="absolute inset-0 -z-10">
         <Canvas gl={{ preserveDrawingBuffer: true }}>
           <ambientLight intensity={0.5} />
@@ -28,15 +29,15 @@ const HeroSection = () => {
         </Canvas>
       </div>
 
-      {/* Background Glows */}
-      <div className="absolute inset-0 -z-20 pointer-events-none">
-        <div className="absolute left-[35%] top-[-15%] w-[80vw] h-[80vw] bg-blue-600/25 rounded-full blur-[180px] animate-pulse" />
-        <div className="absolute left-1/4 bottom-[-10%] w-[60vw] h-[60vw] bg-purple-500/20 rounded-full blur-[140px] animate-pulse delay-1000" />
-      </div>
+      {/* Glowing Blobs */}
+<div className="absolute inset-0 -z-20 pointer-events-none">
+  <div className="absolute left-[35%] top-[-15%] w-[80vw] h-[80vw] bg-blue-500/20 rounded-full blur-[180px] animate-pulse" />
+  <div className="absolute left-1/4 bottom-[-10%] w-[60vw] h-[60vw] bg-indigo-600/20 rounded-full blur-[140px] animate-pulse delay-1000" />
+</div>
 
       {/* Content */}
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-16 pb-10 z-10">
-        {/* Left */}
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-20 pb-10 z-10">
+        {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 text-sm text-green-400 bg-green-900/10 px-3 py-1 rounded-full mx-auto lg:mx-0">
             <BadgeCheck className="w-4 h-4" />
@@ -47,10 +48,10 @@ const HeroSection = () => {
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
             Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-500 text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-blue-400 to-violet-500 text-transparent bg-clip-text">
               Prem Raj
             </span>
           </motion.h1>
@@ -62,7 +63,7 @@ const HeroSection = () => {
           />
 
           <p className="text-gray-300 max-w-md mx-auto lg:mx-0 text-base md:text-lg">
-            Whether it’s a full-stack project or an elegant UI, I bring ideas to life with purpose and precision.
+            Full-stack developer passionate about crafting elegant user interfaces and robust backends that scale.
           </p>
 
           <TechTooltip
@@ -74,33 +75,47 @@ const HeroSection = () => {
             ]}
           />
 
-          <div className="flex gap-4 justify-center lg:justify-start mt-6">
-            <a href="/PremRaj_CV.pdf" download className="flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 hover:bg-blue-500">
-              <DownloadCloud className="w-4 h-4" /> Download CV
+          <div className="flex gap-4 justify-center lg:justify-start mt-6 flex-wrap">
+            <a
+              href="/PremRaj_CV.pdf"
+              download
+              className="flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 hover:bg-blue-500 transition"
+            >
+              <DownloadCloud className="w-4 h-4" />
+              Download CV
             </a>
-            <a href="#services" className="flex items-center gap-2 px-6 py-2 rounded-full border border-white/20 hover:border-white">
-              <Terminal className="w-4 h-4" /> Explore Services
+            <a
+              href="#services"
+              className="flex items-center gap-2 px-6 py-2 rounded-full border border-white/20 hover:border-white transition"
+            >
+              <Terminal className="w-4 h-4" />
+              Explore Services
             </a>
           </div>
         </div>
 
-        {/* Right – Hexagon + Image */}
-        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 overflow-visible">
-          <div className="relative isolate w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-square bg-gradient-to-tr from-purple-600 via-indigo-700 to-purple-800 shadow-2xl clip-hexagon-vertical overflow-visible">
-            <div className="absolute top-[-20px] left-1/2 -translate-x-1/2 w-20 h-20 bg-purple-400 blur-2xl rounded-full opacity-60 animate-pulse" />
-            <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 w-20 h-20 bg-indigo-400 blur-2xl rounded-full opacity-60 animate-pulse delay-500" />
-            <Image
-              src="/image/profile1.png"
-              alt="Prem Raj"
-              width={400}
-              height={400}
-              className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-              priority
-            />
-          </div>
-        </div>
+       {/* Right Image with Futuristic Shape */}
+<div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 overflow-visible">
+  <div className="relative isolate w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-square bg-gradient-to-tr from-purple-600 via-indigo-700 to-purple-800 shadow-2xl rounded-[20%_50%_30%_50%/40%_30%_60%_50%] overflow-hidden transition-all duration-700 p-4 sm:p-6 md:p-8">
+    
+    {/* Glowing Orbs */}
+    <div className="absolute top-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-purple-400 blur-2xl rounded-full opacity-60 animate-pulse" />
+    <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-20 h-20 bg-indigo-400 blur-2xl rounded-full opacity-60 animate-pulse delay-500" />
+
+    {/* Profile Image */}
+    <Image
+      src="/image/profile1.png"
+      alt="Prem Raj"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
+</div>
+
       </div>
     </section>
   );
 };
+
 export default HeroSection;
