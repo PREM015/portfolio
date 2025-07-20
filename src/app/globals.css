@@ -13,6 +13,18 @@ html {
     0px 1px 0px 0px rgba(25, 28, 33, 0.02),
     0px 0px 0px 1px rgba(25, 28, 33, 0.08);
 }
+/* 🟣 Vertical Hexagon (pointed top & bottom) */
+.clip-hexagon-vertical {
+  clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+}
+
 
 
 
