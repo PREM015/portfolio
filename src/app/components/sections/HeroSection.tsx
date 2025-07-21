@@ -95,30 +95,30 @@ const HeroSection = () => {
         </div>
 
         {/* Right Side: Futuristic Profile with Glowing Effects */}
-       {/* Right Side: Modern Animated Blob Container with Neon Effects */}
-<div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-14 lg:mt-0 px-4">
-  <div className="relative group isolate w-[260px] sm:w-[320px] md:w-[400px] aspect-[5/6] bg-gradient-to-br from-[#5B21B6] via-[#7C3AED] to-[#8B5CF6] rounded-[34%_66%_58%_42%/40%_30%_70%_60%] p-1 shadow-[0_0_60px_#9333ea] transition-all duration-700 overflow-hidden border border-purple-500/50 animate-slowspin">
+        {/* Right Side: Modern Animated Blob Container with Neon Effects */}
+        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-14 lg:mt-0 px-4">
+          <div className="relative group isolate w-[260px] sm:w-[320px] md:w-[400px] aspect-[5/6] bg-gradient-to-br from-[#5B21B6] via-[#7C3AED] to-[#8B5CF6] rounded-[34%_66%_58%_42%/40%_30%_70%_60%] p-1 shadow-[0_0_60px_#9333ea] transition-all duration-700 overflow-hidden border border-purple-500/50 animate-slowspin">
 
-    {/* Glow ring layer */}
-    <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] ring-4 ring-[#c084fc]/40 animate-pulse-slow z-0"></div>
+            {/* Glow ring layer */}
+            <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] ring-4 ring-[#c084fc]/40 animate-pulse-slow z-0"></div>
 
-    {/* Holographic border overlay */}
-    <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] border-[1.5px] border-white/10 backdrop-blur-xl z-10 pointer-events-none" />
+            {/* Holographic border overlay */}
+            <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] border-[1.5px] border-white/10 backdrop-blur-xl z-10 pointer-events-none" />
 
-    {/* Floating Gradient Blobs */}
-    <div className="absolute -top-10 left-10 w-24 h-24 bg-purple-400 opacity-30 blur-2xl rounded-full animate-float z-0" />
-    <div className="absolute bottom-0 right-0 w-32 h-32 bg-pink-500 opacity-20 blur-2xl rounded-full animate-float-slow z-0" />
+            {/* Floating Gradient Blobs */}
+            <div className="absolute -top-10 left-10 w-24 h-24 bg-purple-400 opacity-30 blur-2xl rounded-full animate-float z-0" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-pink-500 opacity-20 blur-2xl rounded-full animate-float-slow z-0" />
 
-    {/* Profile Image */}
-    <Image
-      src="/image/profile1.png"
-      alt="Prem Raj"
-      fill
-      className="object-cover rounded-[34%_66%_58%_42%/40%_30%_70%_60%] scale-[1.12] group-hover:scale-[1.18] brightness-110 saturate-150 transition-all duration-700 ease-in-out z-20 relative"
-      priority
-    />
-  </div>
-</div>
+            {/* Profile Image */}
+            <Image
+              src="/image/profile1.png"
+              alt="Prem Raj"
+              fill
+              className="object-cover rounded-[34%_66%_58%_42%/40%_30%_70%_60%] scale-[1.12] group-hover:scale-[1.18] brightness-110 saturate-150 transition-all duration-700 ease-in-out z-20 relative"
+              priority
+            />
+          </div>
+        </div>
 
 
 
