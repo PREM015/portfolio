@@ -2,7 +2,7 @@
 
 import HeroSection from "@/app/components/sections/HeroSection";
 import ProjectsSection from "@/app/components/sections/ProjectsSection";
-import Footer from "@/app/components/common/Footer";
+// import Footer from "@/app/components/common/Footer";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
 
       {/* ❌ DO NOT include <AboutPage /> here! */}
 
-      <Footer />
+      
     </main>
   );
 }

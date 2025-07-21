@@ -9,7 +9,7 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "motion/react";
+} from "framer-motion";
 import React, { useRef, useState } from "react";
 
 // Props Interfaces
@@ -142,9 +142,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
 
 // ✅ MobileNavHeader
 export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) => (
-  <div className={cn("flex w-full items-center justify-between", className)}>
-    {children}
-  </div>
+  <div className={cn("flex w-full items-center justify-between", className)}>{children}</div>
 );
 
 // ✅ MobileNavMenu
@@ -176,12 +174,11 @@ export const MobileNavToggle = ({
 }: {
   isOpen: boolean;
   onClick: () => void;
-}) =>
-  isOpen ? (
-    <IconX className="text-white" onClick={onClick} />
-  ) : (
-    <IconMenu2 className="text-white" onClick={onClick} />
-  );
+}) => (
+  <button onClick={onClick} className="text-white">
+    {isOpen ? <IconX /> : <IconMenu2 />}
+  </button>
+);
 
 // ✅ Logo
 export const NavbarLogo = () => (
@@ -194,21 +191,23 @@ export const NavbarLogo = () => (
   </a>
 );
 
-// ✅ Reusable Button
+// ✅ Reusable Button (type-safe and error-free)
+interface NavbarButtonProps {
+  children: React.ReactNode;
+  href?: string;
+  className?: string;
+  variant?: "primary" | "secondary" | "dark" | "gradient";
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+}
+
 export const NavbarButton = ({
-  href,
-  as: Tag = "a",
   children,
+  href,
   className,
   variant = "primary",
   ...props
-}: {
-  href?: string;
-  as?: React.ElementType;
-  children: React.ReactNode;
-  className?: string;
-  variant?: "primary" | "secondary" | "dark" | "gradient";
-} & (React.ComponentPropsWithoutRef<"a"> | React.ComponentPropsWithoutRef<"button">)) => {
+}: NavbarButtonProps) => {
   const baseStyles =
     "px-4 py-2 rounded-md text-sm font-bold cursor-pointer transition duration-200 text-center";
 
@@ -219,13 +218,15 @@ export const NavbarButton = ({
     gradient: "bg-gradient-to-b from-blue-500 to-blue-700 text-white",
   };
 
-  return (
-    <Tag
-      href={href || undefined}
-      className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
-    >
+  const combinedStyles = cn(baseStyles, variantStyles[variant], className);
+
+  return href ? (
+    <a href={href} className={combinedStyles} {...props}>
       {children}
-    </Tag>
+    </a>
+  ) : (
+    <button className={combinedStyles} {...props}>
+      {children}
+    </button>
   );
 };
