@@ -50,7 +50,7 @@ const HeroSection = () => {
             transition={{ duration: 1.2 }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
-            Hi, I'm {" "}
+            Hi, I &apos; m {" "}
             <span className="bg-gradient-to-r from-blue-400 to-violet-500 text-transparent bg-clip-text">
               Prem Raj
             </span>
