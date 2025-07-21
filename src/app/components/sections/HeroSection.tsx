@@ -1,4 +1,3 @@
-// HeroSection.tsx
 "use client";
 
 import Image from "next/image";
@@ -9,9 +8,10 @@ import { TypewriterEffectSmooth } from "@/app/components/ui/typewriter-effect";
 import { BadgeCheck, DownloadCloud, Terminal } from "lucide-react";
 import TechTooltip from "@/app/components/sections/TechTooltip";
 
+
 const HeroSection = () => {
   const taglines = [
-    { text: "Crafting beautiful web experiences." },
+    { text: "Crafting beautiful web  experiences." },
     { text: "Building full-stack apps with purpose." },
     { text: "Designing with empathy. Coding with clarity." },
     { text: "Lifelong learner & creative thinker." },
@@ -50,7 +50,7 @@ const HeroSection = () => {
             transition={{ duration: 1.2 }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
-            Hi, I'm{" "}
+            Hi, I'm {" "}
             <span className="bg-gradient-to-r from-blue-400 to-violet-500 text-transparent bg-clip-text">
               Prem Raj
             </span>
@@ -68,48 +68,48 @@ const HeroSection = () => {
 
           <TechTooltip
             items={[
-              { id: 1, name: "GitHub", image: "/svg/github.svg", link: "https://github.com/premrajdev" },
-              { id: 2, name: "LinkedIn", image: "/svg/linkedin.svg", link: "https://www.linkedin.com/in/premrajdev/" },
+              { id: 1, name: "GitHub", image: "/svg/github.svg", link: "https://github.com/PREM015" },
+              { id: 2, name: "LinkedIn", image: "/svg/linkedin.svg", link: "https://www.linkedin.com/in/prem-r-2655a3302" },
               { id: 3, name: "Twitter", image: "/svg/twitter.svg", link: "https://twitter.com/premrajcodes" },
-              { id: 4, name: "Instagram", image: "/svg/instagram.svg", link: "https://www.instagram.com/premraj.codes/" },
+              { id: 4, name: "Instagram", image: "/svg/instagram.svg", link: "https://www.instagram.com/rajxdev07/" },
             ]}
           />
 
-          <div className="flex gap-4 justify-center lg:justify-start mt-6 flex-wrap">
-            <a
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-8 z-10">
+            <motion.a
               href="/PremRaj_CV.pdf"
               download
-              className="flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 hover:bg-blue-500 transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-medium bg-gradient-to-tr from-blue-600 to-purple-600 shadow-lg transition-all duration-300 hover:shadow-[0_0_12px_rgba(99,102,241,0.8)]"
             >
-              <DownloadCloud className="w-4 h-4" />
-              Download CV
-            </a>
-            <a
+              <span className="absolute inset-0 rounded-xl border border-white/10 group-hover:border-white/20 transition-all duration-300 blur-sm"></span>
+              <DownloadCloud className="w-4 h-4 z-10" />
+              <span className="z-10">Download CV</span>
+            </motion.a>
+
+            <motion.a
               href="#services"
-              className="flex items-center gap-2 px-6 py-2 rounded-full border border-white/20 hover:border-white transition"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 text-white hover:border-blue-400 transition-all duration-300 backdrop-blur-md bg-white/5"
             >
-              <Terminal className="w-4 h-4" />
-              Explore Services
-            </a>
+              <span className="absolute inset-0 rounded-xl group-hover:shadow-[0_0_12px_rgba(147,197,253,0.5)] transition duration-300 blur-sm"></span>
+              <Terminal className="w-4 h-4 z-10" />
+              <span className="z-10">Explore Services</span>
+            </motion.a>
           </div>
         </div>
 
-        {/* Right Side: Futuristic Profile with Glowing Effects */}
-        {/* Right Side: Modern Animated Blob Container with Neon Effects */}
+        {/* Right Side: Profile Image with Animated Container */}
         <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-14 lg:mt-0 px-4">
           <div className="relative group isolate w-[260px] sm:w-[320px] md:w-[400px] aspect-[5/6] bg-gradient-to-br from-[#5B21B6] via-[#7C3AED] to-[#8B5CF6] rounded-[34%_66%_58%_42%/40%_30%_70%_60%] p-1 shadow-[0_0_60px_#9333ea] transition-all duration-700 overflow-hidden border border-purple-500/50 animate-slowspin">
-
-            {/* Glow ring layer */}
             <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] ring-4 ring-[#c084fc]/40 animate-pulse-slow z-0"></div>
-
-            {/* Holographic border overlay */}
             <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] border-[1.5px] border-white/10 backdrop-blur-xl z-10 pointer-events-none" />
-
-            {/* Floating Gradient Blobs */}
             <div className="absolute -top-10 left-10 w-24 h-24 bg-purple-400 opacity-30 blur-2xl rounded-full animate-float z-0" />
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-pink-500 opacity-20 blur-2xl rounded-full animate-float-slow z-0" />
 
-            {/* Profile Image */}
             <Image
               src="/image/profile1.png"
               alt="Prem Raj"
@@ -119,9 +119,6 @@ const HeroSection = () => {
             />
           </div>
         </div>
-
-
-
       </div>
     </section>
   );
