@@ -18,8 +18,6 @@ export const TypewriterEffectSmooth = ({
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    let interval: NodeJS.Timeout;
-
     const word = words[index].text;
     let currentIndex = 0;
 
@@ -31,12 +29,12 @@ export const TypewriterEffectSmooth = ({
         clearInterval(interval);
         timeout = setTimeout(() => {
           setIndex((prev) => (prev + 1) % words.length);
-        }, 2000); // delay before next word starts
+        }, 2000);
       }
     };
 
     setDisplayedText("");
-    interval = setInterval(type, 70); // typing speed
+    const interval = setInterval(type, 70); // ✅ Now using `const` as suggested by ESLint
 
     return () => {
       clearInterval(interval);
