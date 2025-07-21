@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Teko:wght@300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Permanent+Marker&family=Teko:wght@300..700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -26,7 +29,22 @@ html {
 }
 
 
+/* globals.css */
 
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.font-teko {
+  font-family: 'Teko', sans-serif;
+}
+.cinzel-bold {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style:italic;
+}
 
 @theme inline {
   --color-background: var(--background);

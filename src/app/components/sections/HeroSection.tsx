@@ -8,10 +8,9 @@ import { TypewriterEffectSmooth } from "@/app/components/ui/typewriter-effect";
 import { BadgeCheck, DownloadCloud, Terminal } from "lucide-react";
 import TechTooltip from "@/app/components/sections/TechTooltip";
 
-
 const HeroSection = () => {
   const taglines = [
-    { text: "Crafting beautiful web  experiences." },
+    { text: "Crafting beautiful web experiences." },
     { text: "Building full-stack apps with purpose." },
     { text: "Designing with empathy. Coding with clarity." },
     { text: "Lifelong learner & creative thinker." },
@@ -35,9 +34,9 @@ const HeroSection = () => {
         <div className="absolute left-1/4 bottom-[-10%] w-[60vw] h-[60vw] bg-indigo-600/20 rounded-full blur-[140px] animate-pulse delay-1000" />
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-20 pb-10 z-10">
-        {/* Left Content */}
+      {/* Main Content */}
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-24 pb-16 z-10">
+        {/* Left Column */}
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 text-sm text-green-400 bg-green-900/10 px-3 py-1 rounded-full mx-auto lg:mx-0">
             <BadgeCheck className="w-4 h-4" />
@@ -50,7 +49,7 @@ const HeroSection = () => {
             transition={{ duration: 1.2 }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
-            Hi, I &apos; m {" "}
+            Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-blue-400 to-violet-500 text-transparent bg-clip-text">
               Prem Raj
             </span>
@@ -58,11 +57,11 @@ const HeroSection = () => {
 
           <TypewriterEffectSmooth
             words={taglines.map((t) => ({ text: t.text, className: "text-white" }))}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium font-marker"
             cursorClassName="bg-blue-500"
           />
 
-          <p className="text-gray-300 max-w-md mx-auto lg:mx-0 text-base md:text-lg">
+          <p className="text-gray-300 max-w-md mx-auto lg:mx-0 text-base md:text-lg font-cinzel">
             Full-stack developer passionate about crafting elegant user interfaces and robust backends that scale.
           </p>
 
@@ -102,7 +101,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Side: Profile Image with Animated Container */}
+        {/* Right Column: Animated Profile Blob */}
         <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-14 lg:mt-0 px-4">
           <div className="relative group isolate w-[260px] sm:w-[320px] md:w-[400px] aspect-[5/6] bg-gradient-to-br from-[#5B21B6] via-[#7C3AED] to-[#8B5CF6] rounded-[34%_66%_58%_42%/40%_30%_70%_60%] p-1 shadow-[0_0_60px_#9333ea] transition-all duration-700 overflow-hidden border border-purple-500/50 animate-slowspin">
             <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] ring-4 ring-[#c084fc]/40 animate-pulse-slow z-0"></div>
