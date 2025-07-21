@@ -35,7 +35,7 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-24 pb-16 z-10">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-6 md:px-12 pt-14 pb-16 z-10">
         {/* Left Column */}
         <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 text-sm text-green-400 bg-green-900/10 px-3 py-1 rounded-full mx-auto lg:mx-0">
@@ -49,7 +49,7 @@ const HeroSection = () => {
             transition={{ duration: 1.2 }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
-            Hi, I&apos;m{" "}
+            Hi, I&apos;m{"   "}
             <span className="bg-gradient-to-r from-blue-400 to-violet-500 text-transparent bg-clip-text">
               Prem Raj
             </span>
