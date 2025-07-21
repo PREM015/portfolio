@@ -57,7 +57,7 @@ const HeroSection = () => {
 
           <TypewriterEffectSmooth
             words={taglines.map((t) => ({ text: t.text, className: "text-white" }))}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium font-marker"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium font-marker shimmer-text"
             cursorClassName="bg-blue-500"
           />
 

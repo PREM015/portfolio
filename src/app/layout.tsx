@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Navbar from "@/app/components/common/Navbar";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Prem raj",
   description: "Prem Raj's Portfolio",
 };
 

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Teko:wght@300..700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Permanent+Marker&family=Teko:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -45,6 +46,31 @@ html {
   font-weight: 700;
   font-style:italic;
 }
+
+/* ✨ Shimmer Text Effect */
+.shimmer-text {
+  display: inline-block; /* ✅ REQUIRED for background-clip */
+  background: linear-gradient(90deg, #ffffff, #c084fc, #38bdf8, #ffffff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* ✅ Needed for Safari */
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+
+
+
 
 @theme inline {
   --color-background: var(--background);
