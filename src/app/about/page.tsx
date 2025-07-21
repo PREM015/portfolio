@@ -15,7 +15,7 @@ export default function AboutPage() {
           About Me
         </h1>
         <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-          I'm <span className="text-cyan-400 font-semibold">Prem Raj</span>, a passionate and curious full-stack developer
+          I&apos;m <span className="text-cyan-400 font-semibold">Prem Raj</span>, a passionate and curious full-stack developer
           with a deep love for building modern, responsive, and user-focused web applications.
           I specialize in technologies like{" "}
           <span className="text-purple-400">React</span>,{" "}
@@ -26,7 +26,7 @@ export default function AboutPage() {
 
         <p className="text-gray-400 mt-6 text-sm sm:text-base">
           With a strong foundation in both frontend and backend, I focus on writing clean, maintainable code and constantly
-          pushing my skills through side projects, collaboration, and learning. When I'm not coding, you'll find me exploring new tools, reading about tech trends, or working on personal design systems.
+          pushing my skills through side projects, collaboration, and learning. When I&apos;m not coding, you&apos;ll find me exploring new tools, reading about tech trends, or working on personal design systems.
         </p>
       </motion.div>
 
