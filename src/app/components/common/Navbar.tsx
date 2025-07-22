@@ -14,6 +14,7 @@ import {
 import { useState, useEffect } from "react";
 import { GlowingStarsBackground } from "@/app/components/ui/glowing-stars-background";
 
+
 // ✅ Google Font Inject
 const GoogleFontImport = () => (
   <style jsx global>{`
@@ -100,6 +101,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.link}
                 scroll={item.link.startsWith("/#")}
+                prefetch={true}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${
                   activeSection === item.link
                     ? "text-white bg-blue-600 shadow-sm"
