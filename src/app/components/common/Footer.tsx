@@ -44,10 +44,10 @@ const Footer = () => {
                 Full Stack Developer crafting modern, performant UIs with React, TypeScript, and Next.js. Passionate about web performance and UX design.
               </p>
               <div className="flex justify-center sm:justify-start gap-4">
-                <Link href="https://github.com" target="_blank" aria-label="GitHub">
+                <Link href="https://github.com/PREM015" target="_blank" aria-label="GitHub">
                   <GithubIcon />
                 </Link>
-                <Link href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <Link href="https://www.linkedin.com/in/prem-r-2655a3302" target="_blank" aria-label="LinkedIn">
                   <LinkedInIcon />
                 </Link>
                 <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
