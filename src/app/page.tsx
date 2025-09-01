@@ -2,7 +2,8 @@
 
 import HeroSection from "@/app/components/sections/HeroSection";
 import ProjectsSection from "@/app/components/sections/ProjectsSection";
-// import Footer from "@/app/components/common/Footer";
+import Skillssection from "./components/sections/Skillssection";
+
 
 export default function Home() {
   return (
@@ -12,13 +13,16 @@ export default function Home() {
         <HeroSection />
       </section>
 
+      <section id="skills">
+        <Skillssection />
+      </section>
       <section id="projects">
         <ProjectsSection />
       </section>
 
-      {/* ❌ DO NOT include <AboutPage /> here! */}
 
-      
+
+
     </main>
   );
 }
