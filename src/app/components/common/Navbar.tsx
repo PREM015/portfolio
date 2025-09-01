@@ -1,4 +1,4 @@
-"use client";
+"use client"; // ✅ Next.js client component
 
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,6 @@ import {
 import { useState, useEffect } from "react";
 import { GlowingStarsBackground } from "@/app/components/ui/glowing-stars-background";
 
-
 // ✅ Google Font Inject
 const GoogleFontImport = () => (
   <style jsx global>{`
@@ -25,7 +24,7 @@ const GoogleFontImport = () => (
   `}</style>
 );
 
-// ✅ Section Tracker Hook
+// ✅ Hook: Track which section is active while scrolling
 const useActiveSection = (sectionIds: string[]) => {
   const [active, setActive] = useState<string>("");
 
@@ -52,16 +51,17 @@ const useActiveSection = (sectionIds: string[]) => {
   return active;
 };
 
-// ✅ Navigation Items (absolute URLs)
+// ✅ Navigation Items (routes)
 const navItems = [
   { name: "Home", link: "/" },
   { name: "Projects", link: "/projects" },
   { name: "Skills", link: "/Skills" },
   { name: "Experience", link: "/Experience" },
-  { name: "About", link: "/about" }, // ✅ Route to actual About Page
+  { name: "About", link: "/about" },
   { name: "Contact", link: "/contact" },
 ];
-// ✅ Logo
+
+// ✅ Logo Component
 const NavbarLogo = () => (
   <Link
     href="/"
@@ -80,7 +80,7 @@ const NavbarLogo = () => (
   </Link>
 );
 
-// ✅ Main Navbar Component
+// ✅ Main Navbar
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeSection = useActiveSection(navItems.map((item) => item.link));
@@ -94,7 +94,10 @@ export default function Navbar() {
         <NavBody className="relative z-10 py-4 min-h-[80px] px-4 sm:px-8 lg:px-16 overflow-hidden">
           <GlowingStarsBackground className="absolute inset-0 z-0 opacity-30 pointer-events-none" />
 
+          {/* 🔗 Logo */}
           <NavbarLogo />
+
+          {/* 🔗 Desktop Links */}
           <div className="hidden lg:flex items-center justify-center gap-1 text-sm font-marker font-medium">
             {navItems.map((item) => (
               <Link
@@ -112,13 +115,21 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+
+          {/* 📄 Resume Button (Desktop) */}
           <div className="hidden lg:flex items-center gap-3">
-            <NavbarButton
-              variant="gradient"
-              className="shadow-md hover:scale-105 transition"
+            <Link
+              href="/files/Prem.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Resume
-            </NavbarButton>
+              <NavbarButton
+                variant="gradient"
+                className="shadow-md hover:scale-105 transition"
+              >
+                Resume
+              </NavbarButton>
+            </Link>
           </div>
         </NavBody>
 
@@ -157,14 +168,18 @@ export default function Navbar() {
                 </Link>
               ))}
 
+              {/* 📄 Resume Button (Mobile) */}
               <div className="pt-4 border-t border-neutral-800 mt-4">
-                <NavbarButton
+                <Link
+                  href="/files/Prem.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  variant="gradient"
-                  className="w-full text-center"
                 >
-                  Resume
-                </NavbarButton>
+                  <NavbarButton variant="gradient" className="w-full text-center">
+                    Resume
+                  </NavbarButton>
+                </Link>
               </div>
             </div>
           </MobileNavMenu>
