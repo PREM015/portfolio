@@ -100,7 +100,7 @@ const Footer = () => {
 
           {/* Footer Bottom */}
           <div className="mt-12 border-t border-neutral-700 pt-6 text-center text-sm text-neutral-400 font-light">
-            © {new Date().getFullYear()} <span className="text-white font-semibold">Raj Portfolio</span>. Built with 💙 using Next.js, Tailwind, Shadcn UI & Aceternity UI.
+            © {new Date().getFullYear()} <span className="text-white font-semibold">Raj Portfolio</span>. Built with 💙 using Next.js.
           </div>
         </div>
       </Vortex>

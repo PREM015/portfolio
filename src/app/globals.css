@@ -4,6 +4,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Hide scrollbar globally for horizontal scrolling elements */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
 
 @custom-variant dark (&:is(.dark *));
 
