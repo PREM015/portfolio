@@ -1,17 +1,30 @@
-// 📁 src/app/projects/page.tsx
 "use client";
 
 import React from "react";
 import { LampContainer } from "@/app/components/ui/lamp";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-// 🔧 Projects list
-const projects = [
+// -------------------------------
+// Types
+// -------------------------------
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  link: string;
+}
+
+// -------------------------------
+// Projects Data
+// -------------------------------
+const projects: Project[] = [
   {
     title: "Portfolio Website",
-    description: "Modern developer portfolio built with Next.js, Tailwind CSS and Framer Motion.",
+    description:
+      "Modern developer portfolio built with Next.js, Tailwind CSS and Framer Motion.",
     image: "/image/portfolio.png",
     tech: ["Next.js", "Tailwind", "TypeScript"],
     link: "/",
@@ -39,75 +52,146 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-  <motion.div
-    whileHover={{ scale: 1.02 }}
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4, ease: "easeOut" }}
+// -------------------------------
+// Motion Variants
+// -------------------------------
+const containerVariants: Variants = {
+  animate: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants: Variants = {
+  initial: { opacity: 0, y: 50, scale: 0.95 },
+  animate: { opacity: 1, y: 0, scale: 1 },
+  hover: {
+    scale: 1.05,
+    rotateX: -3,
+    rotateY: 3,
+    transition: { type: "spring", stiffness: 250, damping: 20 },
+  },
+};
+
+const tagVariants: Variants = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+};
+
+// -------------------------------
+// Project Card Component
+// -------------------------------
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
+  <motion.article
+    variants={cardVariants}
+    initial="initial"
+    whileInView="animate"
+    whileHover="hover"
     viewport={{ once: true }}
-    className="bg-neutral-900/60 backdrop-blur-md border border-neutral-800 rounded-xl shadow-lg p-3 transition duration-300 hover:shadow-cyan-500/20 hover:border-cyan-500"
+    role="region"
+    aria-labelledby={`${project.title}-title`}
+    tabIndex={0}
+    className="bg-neutral-900/50 backdrop-blur-xl border border-neutral-800 rounded-2xl shadow-xl p-4 sm:p-5 hover:shadow-cyan-500/40 hover:border-cyan-400 transition-transform duration-300 focus-within:ring-2 focus-within:ring-cyan-400 focus:outline-none"
   >
-    <Image
-      src={project.image}
-      alt={project.title}
-      width={500}
-      height={240}
-      className="w-full h-40 object-cover rounded-md mb-2 border border-neutral-700"
-    />
-    <h3 className="text-base font-semibold text-white mb-1">{project.title}</h3>
-    <p className="text-gray-400 text-xs mb-2">{project.description}</p>
-    <div className="flex flex-wrap gap-1 mb-2">
-      {project.tech.map((tag) => (
-        <span
-          key={tag}
-          className="text-[10px] px-2 py-0.5 bg-cyan-800/40 text-cyan-300 rounded-full font-medium"
-        >
-          {tag}
-        </span>
-      ))}
+    {/* Project Image */}
+    <div className="relative w-full h-48 sm:h-52 mb-3 rounded-xl overflow-hidden border border-neutral-700 shadow-inner">
+      <Image
+        src={project.image}
+        alt={`Screenshot of ${project.title}`}
+        fill
+        className="object-cover hover:scale-105 transition-transform duration-300"
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
     </div>
+
+    {/* Project Title */}
+    <h3
+      id={`${project.title}-title`}
+      className="text-lg sm:text-xl font-bold text-white mb-2 drop-shadow-lg"
+    >
+      {project.title}
+    </h3>
+
+    {/* Project Description */}
+    <p className="text-gray-300 text-sm sm:text-base mb-3">{project.description}</p>
+
+    {/* Tech Tags */}
+    <motion.div
+      className="flex flex-wrap gap-2 mb-3"
+      aria-label={`Technologies used in ${project.title}`}
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
+    >
+      {project.tech.map((tech) => (
+        <motion.span
+          key={tech}
+          variants={tagVariants}
+          className="text-[10px] sm:text-xs px-2 py-1 rounded-full font-semibold cursor-default 
+                     bg-cyan-800/40 text-cyan-300 hover:bg-cyan-700/50 hover:text-white transition"
+        >
+          {tech}
+        </motion.span>
+      ))}
+    </motion.div>
+
+    {/* View Project Link */}
     <Link
       href={project.link}
-      className="inline-block text-xs font-medium text-cyan-400 hover:text-cyan-300 transition"
+      className="inline-block mt-1 text-sm font-medium text-cyan-400 hover:text-cyan-200 transition focus:outline-none focus:ring-1 focus:ring-cyan-400 rounded"
+      aria-label={`View the ${project.title} project`}
+      tabIndex={0}
     >
       View Project →
     </Link>
-  </motion.div>
+  </motion.article>
 );
 
-const ProjectsPage = () => {
+// -------------------------------
+// Projects Page
+// -------------------------------
+const ProjectsPage: React.FC = () => {
   return (
-    <div className="bg-gradient-to-b from-black via-slate-950 to-black w-full">
-      {/* 🔮 Header Glow */}
-      <LampContainer className="px-4 md:px-10 pt-20 pb-8">
+    <main className="bg-gradient-to-b from-black via-slate-950 to-black w-full min-h-screen">
+      {/* Header with Neon Glow */}
+      <LampContainer className="px-4 md:px-10 pt-20 pb-10">
         <motion.h1
-          initial={{ opacity: 0.5, y: 20 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-center"
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-center drop-shadow-lg"
         >
           My Projects
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-2 text-neutral-400 max-w-md mx-auto text-xs sm:text-sm text-center"
+          className="mt-3 text-neutral-400 max-w-md mx-auto text-sm sm:text-base text-center"
         >
-          A collection of recent apps, UI experiments, and open-source tools I’ve built.
+          A showcase of modern apps, UI experiments, and open-source tools I’ve built using
+          cutting-edge technologies.
         </motion.p>
       </LampContainer>
 
-      {/* 🧩 Project Grid */}
-      <section className="relative w-full px-4 md:px-10 -mt-6 pb-14">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Projects Grid */}
+      <section
+        aria-label="Project portfolio"
+        className="relative w-full px-4 md:px-10 -mt-6 pb-14"
+      >
+        <motion.div
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        >
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
-        </div>
+        </motion.div>
       </section>
-    </div>
+    </main>
   );
 };
 

@@ -122,7 +122,7 @@ const HeroSection = () => {
 
             {/* Profile Image */}
             <Image
-              src="/image/profile1.png"
+              src="/image/profile2.png"
               alt="Prem Raj"
               fill
               className="object-cover rounded-[34%_66%_58%_42%/40%_30%_70%_60%] scale-[1.12] group-hover:scale-[1.18] brightness-110 saturate-150 transition-all duration-700 ease-in-out z-20 relative"
