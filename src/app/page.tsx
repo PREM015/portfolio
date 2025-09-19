@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <main className="w-full">
       {/* ✅ Only sections here */}
+      
       <section id="home">
         <HeroSection />
       </section>

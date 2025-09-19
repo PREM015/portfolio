@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 type Skill = {
   name: string;
-  level: number;
+  level: number; // percentage
 };
 
 const skillCategories: { title: string; skills: Skill[] }[] = [
@@ -59,29 +59,20 @@ const skillCategories: { title: string; skills: Skill[] }[] = [
   },
 ];
 
-const skillLevelsLabels: Record<number, string> = {
-  95: "Expert",
-  90: "Advanced",
-  88: "Advanced",
-  85: "Proficient",
-  82: "Proficient",
-  80: "Intermediate",
-  78: "Intermediate",
-  77: "Intermediate",
-  75: "Intermediate",
-  72: "Learning",
-  70: "Learning",
-  68: "Learning",
-  65: "Learning",
+// Map levels to labels
+const getLevelLabel = (level: number): string => {
+  if (level >= 90) return "Master";
+  if (level >= 80) return "Advanced";
+  return "Intermediate";
 };
 
+// Animated counter
 const Counter: React.FC<{ target: number }> = ({ target }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
-    const duration = 1000;
-    const step = Math.max(15, Math.floor(duration / target));
+    const step = Math.max(15, Math.floor(1000 / target));
     const timer = setInterval(() => {
       start += 1;
       setCount(start);
@@ -97,37 +88,26 @@ const SkillsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section
-      className="relative py-20 px-6 md:px-16 w-full bg-gradient-to-b from-gray-950 via-black to-gray-950 text-white"
-      aria-label="Technical Skills"
-    >
+    <section className="relative py-20 px-6 md:px-16 w-full bg-gradient-to-b from-black via-gray-950 to-black text-white">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-14 bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text select-none"
+        className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text select-none"
       >
-        Technical Skills
+        My Technical Skills
       </motion.h2>
 
       {/* Tabs */}
-      <nav
-        className="flex flex-wrap justify-center gap-3 mb-12"
-        aria-label="Skill Categories"
-      >
+      <nav className="flex flex-wrap justify-center gap-3 mb-12">
         {skillCategories.map((cat, i) => {
           const active = activeCategory === i;
           return (
             <button
               key={cat.title}
               onClick={() => setActiveCategory(i)}
-              role="tab"
-              aria-selected={active}
-              aria-controls={`panel-${i}`}
-              id={`tab-${i}`}
-              tabIndex={active ? 0 : -1}
-              className={`relative px-5 py-2 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 focus:outline-none ${
+              className={`px-5 py-2 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 ${
                 active
                   ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-black shadow-lg"
                   : "bg-white/10 text-white/70 hover:bg-white/20"
@@ -139,31 +119,27 @@ const SkillsSection: React.FC = () => {
         })}
       </nav>
 
-      {/* Skills List */}
+      {/* Skills Grid */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategory}
-          id={`panel-${activeCategory}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${activeCategory}`}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.5 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
         >
           {skillCategories[activeCategory].skills.map((skill, i) => (
-            <motion.article
+            <motion.div
               key={skill.name}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.07 }}
               whileHover={{
-                scale: 1.06,
-                boxShadow:
-                  "0 10px 25px rgba(14,203,255,0.25), 0 0 20px rgba(59,130,246,0.25)",
+                scale: 1.05,
+                backgroundColor: "rgba(59,130,246,0.08)",
               }}
-              className="flex flex-col gap-3 p-6 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-md border border-white/10"
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-md backdrop-blur-md flex flex-col gap-3"
             >
               {/* Skill Header */}
               <div className="flex justify-between items-center">
@@ -180,16 +156,16 @@ const SkillsSection: React.FC = () => {
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
+                  transition={{ duration: 1 }}
+                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
                 />
               </div>
 
-              {/* Proficiency Label */}
+              {/* Label */}
               <p className="text-sm text-gray-400 mt-1">
-                {skillLevelsLabels[skill.level] ?? `${skill.level}%`}
+                {getLevelLabel(skill.level)}
               </p>
-            </motion.article>
+            </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>
