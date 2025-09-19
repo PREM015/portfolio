@@ -29,34 +29,30 @@ const projects = [
   },
 ];
 
-// Container Fade-in with stagger
+// Container fade-in
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.15 } },
 };
 
-// Individual Tile animations
+// Tile fade-in only (no hover here)
 const tileVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
-  hover: { scale: 1.05, transition: { type: "spring", stiffness: 200, damping: 20 } },
 };
 
-// Tech tag hover color effect variants
+// Tech tag hover animation
 const techTagHover = {
   rest: { backgroundColor: "rgba(14,116,144,0.3)", color: "#38bdf8" },
   hover: { backgroundColor: "rgba(14,116,144,0.8)", color: "#e0f2fe", scale: 1.1 },
 };
 
-// Main Project Tile Component
 const ProjectTile: React.FC<{ project: typeof projects[0] }> = ({ project }) => {
-  // Track mouse position for parallax
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
-  // Parallax handler
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20; // max ±10 deg rotate
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
     const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
     setPos({ x, y });
   };
@@ -68,7 +64,7 @@ const ProjectTile: React.FC<{ project: typeof projects[0] }> = ({ project }) => 
       variants={tileVariants}
       initial="hidden"
       whileInView="visible"
-      whileHover="hover"
+      whileHover={{ scale: 1.05, transition: { type: "spring", stiffness: 200, damping: 20 } }}
       viewport={{ once: true }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -80,7 +76,7 @@ const ProjectTile: React.FC<{ project: typeof projects[0] }> = ({ project }) => 
         perspective: 800,
       }}
     >
-      {/* Layered Glowing Blob */}
+      {/* Glow */}
       <motion.div
         aria-hidden="true"
         className="absolute -inset-4 bg-gradient-to-r from-cyan-500/40 via-blue-500/30 to-purple-600/40 rounded-3xl filter blur-3xl opacity-70 pointer-events-none"
@@ -89,8 +85,13 @@ const ProjectTile: React.FC<{ project: typeof projects[0] }> = ({ project }) => 
         }}
       />
 
-      {/* Project Image with subtle parallax */}
-      <div className="relative rounded-xl overflow-hidden border border-neutral-700 shadow-inner mb-4" style={{ transform: `translateX(${pos.x * 0.8}px) translateY(${pos.y * 0.8}px)` }}>
+      {/* Image */}
+      <div
+        className="relative rounded-xl overflow-hidden border border-neutral-700 shadow-inner mb-4"
+        style={{
+          transform: `translateX(${pos.x * 0.8}px) translateY(${pos.y * 0.8}px)`,
+        }}
+      >
         <Image
           src={project.image}
           alt={`Screenshot of ${project.title}`}
@@ -128,7 +129,7 @@ const ProjectTile: React.FC<{ project: typeof projects[0] }> = ({ project }) => 
         ))}
       </div>
 
-      {/* View Project Button */}
+      {/* Button */}
       <Link
         href={project.link}
         className="inline-block px-5 py-2 text-sm font-bold text-cyan-400 border border-cyan-400 rounded-full hover:bg-cyan-500/20 transition-shadow backdrop-blur-md"
