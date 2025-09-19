@@ -11,7 +11,7 @@ const projects = [
     description: "Next.js + Tailwind + Framer Motion portfolio website with modern UI.",
     image: "/image/portfilo.png",
     tech: ["Next.js", "Tailwind", "TypeScript"],
-    link: "/projects",
+    link: "https://rajprem.vercel.app/",
   },
   {
     title: "Music App",
@@ -25,7 +25,7 @@ const projects = [
     description: "Interactive responsive shopping UI with smooth animations.",
     image: "/image/ecommerce.png",
     tech: ["React", "Framer Motion", "CSS Modules"],
-    link: "/projects",
+    link: "https://bharatcart-ten.vercel.app/",
   },
 ];
 
