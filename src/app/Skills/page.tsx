@@ -15,17 +15,39 @@ const skillsWithTimeline = [
   },
   {
     phase: "2022 - Modern Frontend Frameworks",
-    skills: ["React.js", "Next.js", "Vue.js", "Tailwind CSS", "Redux", "TypeScript (Frontend)"],
+    skills: [
+      "React.js",
+      "Next.js",
+      "Vue.js",
+      "Tailwind CSS",
+      "Redux",
+      "TypeScript (Frontend)",
+    ],
     color: "from-purple-500 to-purple-700",
   },
   {
     phase: "2023 - Backend & APIs",
-    skills: ["Node.js", "Express.js", "REST APIs", "GraphQL", "JWT Auth", "TypeScript (Backend)"],
+    skills: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "GraphQL",
+      "JWT Auth",
+      "TypeScript (Backend)",
+    ],
     color: "from-pink-500 to-pink-700",
   },
   {
     phase: "2024 - Databases & Storage",
-    skills: ["MongoDB", "MySQL", "PostgreSQL", "Firebase", "Prisma ORM", "Redis", "Elasticsearch"],
+    skills: [
+      "MongoDB",
+      "MySQL",
+      "PostgreSQL",
+      "Firebase",
+      "Prisma ORM",
+      "Redis",
+      "Elasticsearch",
+    ],
     color: "from-cyan-500 to-cyan-700",
   },
   {
@@ -65,14 +87,18 @@ const SkillBadge = memo(function SkillBadge({
 }) {
   return (
     <motion.div
-      className={`relative rounded-2xl px-4 sm:px-5 py-3 font-medium text-white 
+      className={`relative rounded-xl sm:rounded-2xl px-3 sm:px-5 py-2 sm:py-3 font-medium text-white 
         bg-gradient-to-r ${colorClass} shadow-md 
-        flex items-center gap-3 max-w-[14rem] cursor-default overflow-hidden`}
-      whileHover={{ scale: 1.05, rotate: -2, boxShadow: "0 0 30px rgba(255,255,255,0.25)" }}
+        flex items-center gap-2 sm:gap-3 max-w-[12rem] sm:max-w-[14rem] cursor-default overflow-hidden`}
+      whileHover={{
+        scale: 1.05,
+        rotate: -2,
+        boxShadow: "0 0 30px rgba(255,255,255,0.25)",
+      }}
       transition={TRANSITIONS.spring}
       aria-label={`Skill: ${skill}`}
     >
-      <FaCircle className="text-white/90 text-xs sm:text-sm" />
+      <FaCircle className="text-white/90 text-[0.6rem] sm:text-sm" />
       <span className="relative z-10 text-xs sm:text-sm">{skill}</span>
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent"
@@ -101,23 +127,27 @@ const TimelineItem = memo(function TimelineItem({
       tabIndex={0}
       aria-pressed={isActive}
       aria-current={isActive ? "step" : undefined}
-      className={`flex flex-col items-center px-3 sm:px-6 py-2 sm:py-3 rounded-2xl min-w-[10rem] snap-center
+      className={`flex flex-col items-center px-2 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl min-w-[8rem] sm:min-w-[10rem] snap-center
         transition focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600
-        ${isActive
-          ? `bg-gradient-to-r ${colorClass} text-white shadow-lg`
-          : "bg-white/5 text-gray-400 hover:text-white backdrop-blur-md border border-white/10"}`}
+        ${
+          isActive
+            ? `bg-gradient-to-r ${colorClass} text-white shadow-lg`
+            : "bg-white/5 text-gray-400 hover:text-white backdrop-blur-md border border-white/10"
+        }`}
       whileHover={{ scale: 1.05 }}
       whileFocus={{ scale: 1.05 }}
     >
       <motion.div
-        className="rounded-full w-7 h-7 sm:w-9 sm:h-9 bg-white mb-2 sm:mb-3 border border-white/40"
+        className="rounded-full w-6 h-6 sm:w-9 sm:h-9 bg-white mb-1 sm:mb-3 border border-white/40"
         animate={{
           scale: isActive ? 1.5 : 1,
           boxShadow: isActive ? "0 0 25px rgba(255,255,255,0.7)" : "none",
         }}
         transition={TRANSITIONS.spring}
       />
-      <span className="text-xs sm:text-sm font-semibold text-center">{phase}</span>
+      <span className="text-[0.65rem] sm:text-sm font-semibold text-center">
+        {phase}
+      </span>
     </motion.button>
   );
 });
@@ -132,10 +162,14 @@ export default function SkillsTimelineMap() {
   // auto-center active item
   useEffect(() => {
     const timeline = timelineRef.current;
-    const activeButton = timeline?.querySelector("[aria-pressed='true']") as HTMLElement | null;
+    const activeButton = timeline?.querySelector(
+      "[aria-pressed='true']"
+    ) as HTMLElement | null;
     if (timeline && activeButton) {
       const scrollPos =
-        activeButton.offsetLeft - timeline.offsetWidth / 2 + activeButton.offsetWidth / 2;
+        activeButton.offsetLeft -
+        timeline.offsetWidth / 2 +
+        activeButton.offsetWidth / 2;
       timeline.scrollTo({ left: scrollPos, behavior: "smooth" });
     }
   }, [activeIndex]);
@@ -152,21 +186,24 @@ export default function SkillsTimelineMap() {
 
   return (
     <section
-      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black p-4 sm:p-12 flex flex-col items-center"
+      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black p-3 sm:p-12 flex flex-col items-center"
       aria-label="Skill evolution timeline"
       onKeyDown={handleKeyNav}
     >
       {/* Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-10 sm:mb-16
+      <h1
+        className="text-xl sm:text-3xl md:text-4xl font-extrabold text-center 
+        mb-6 sm:mb-10 md:mb-16
         bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-600 to-pink-500
-        drop-shadow-lg leading-snug max-w-3xl">
+        drop-shadow-lg leading-snug max-w-xl sm:max-w-3xl"
+      >
         🚀 My Skill Evolution — Full Stack Expertise
       </h1>
 
       {/* Timeline */}
       <motion.div
         ref={timelineRef}
-        className="flex gap-3 sm:gap-6 overflow-x-auto w-full max-w-7xl px-1 sm:px-3 pb-4 snap-x scrollbar-none touch-pan-x"
+        className="flex gap-2 sm:gap-6 overflow-x-scroll w-full max-w-7xl px-1 sm:px-3 pb-3 sm:pb-4 snap-x scrollbar-none flex-nowrap touch-pan-x"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -188,15 +225,17 @@ export default function SkillsTimelineMap() {
       </motion.div>
 
       {/* Progress bar */}
-      <div className="relative w-full max-w-7xl h-2 bg-gray-800 rounded-full mb-12 sm:mb-16 overflow-hidden">
+      <div className="relative w-full max-w-7xl h-2 bg-gray-800 rounded-full mb-8 sm:mb-16 overflow-hidden">
         <motion.div
           className={`h-2 rounded-full bg-gradient-to-r ${skillsWithTimeline[activeIndex].color}`}
           layout
           transition={TRANSITIONS.softSpring}
-          style={{ width: `${(activeIndex / (skillsWithTimeline.length - 1)) * 100}%` }}
+          style={{
+            width: `${(activeIndex / (skillsWithTimeline.length - 1)) * 100}%`,
+          }}
         />
         <motion.div
-          className="absolute top-1/2 -translate-y-1/2 rounded-full w-5 sm:w-6 h-5 sm:h-6 bg-white shadow-md"
+          className="absolute top-1/2 -translate-y-1/2 rounded-full w-4 sm:w-6 h-4 sm:h-6 bg-white shadow-md"
           animate={{
             left: `${(activeIndex / (skillsWithTimeline.length - 1)) * 100}%`,
             boxShadow: "0 0 15px rgba(255,255,255,0.8)",
@@ -211,13 +250,19 @@ export default function SkillsTimelineMap() {
         initial={{ opacity: 0, y: 15, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 px-1 sm:px-4 place-items-center"
+        className="w-full max-w-7xl 
+        grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
+        gap-2 sm:gap-4 md:gap-6 px-1 sm:px-4 place-items-center"
         role="tabpanel"
         aria-labelledby={`phase-${activeIndex}`}
         aria-live="polite"
       >
         {skillsWithTimeline[activeIndex].skills.map((skill) => (
-          <SkillBadge key={skill} skill={skill} colorClass={skillsWithTimeline[activeIndex].color} />
+          <SkillBadge
+            key={skill}
+            skill={skill}
+            colorClass={skillsWithTimeline[activeIndex].color}
+          />
         ))}
       </motion.div>
 
@@ -229,13 +274,18 @@ export default function SkillsTimelineMap() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 15 }}
           transition={{ duration: 0.5 }}
-          className={`max-w-3xl mt-8 sm:mt-12 p-4 sm:p-6 rounded-3xl text-center shadow-md tracking-wide text-sm sm:text-base md:text-lg leading-relaxed border
-            bg-gradient-to-r ${skillsWithTimeline[activeIndex].color} bg-opacity-20 border-white/20 text-white/90`}
+          className={`w-full sm:max-w-3xl mt-6 sm:mt-12 p-3 sm:p-6 rounded-2xl sm:rounded-3xl text-center shadow-md tracking-wide 
+          text-xs sm:text-base md:text-lg leading-relaxed border
+          bg-gradient-to-r ${skillsWithTimeline[activeIndex].color} bg-opacity-20 border-white/20 text-white/90`}
         >
           <p>
-            In <strong>{skillsWithTimeline[activeIndex].phase}</strong>, I mastered{" "}
-            <strong>{skillsWithTimeline[activeIndex].skills.length}</strong> key technologies,
-            sharpening my full stack expertise to build modern, scalable applications.
+            In <strong>{skillsWithTimeline[activeIndex].phase}</strong>, I
+            mastered{" "}
+            <strong>
+              {skillsWithTimeline[activeIndex].skills.length}
+            </strong>{" "}
+            key technologies, sharpening my full stack expertise to build
+            modern, scalable applications.
           </p>
         </motion.div>
       </AnimatePresence>
