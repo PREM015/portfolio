@@ -112,4 +112,4 @@ Licensed under the **MIT License**. Use it, modify it, love it.
 
 ---
 
-> Made with ❤️ by **Prem Raj** — Full-stack Dev | UI Magician | Code Rockstar
+> Made with ❤️ by **Prem Raj** — Full-stack Dev  | Code Rockstar
