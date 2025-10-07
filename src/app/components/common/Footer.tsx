@@ -3,10 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { Vortex } from "@/app/components/ui/vortex";
-import "@/app/globals.css"; // Orbitron font + base styles
+import "@/app/globals.css";
+import { motion } from "framer-motion";
 
 const iconClass =
-  "w-6 h-6 hover:fill-cyan-400 transition-transform duration-300 transform hover:scale-110";
+  "w-6 h-6 text-gray-300 transition-transform duration-300 transform hover:scale-125 hover:text-cyan-400 hover:drop-shadow-lg";
 
 const TwitterIcon = () => (
   <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
@@ -27,79 +28,118 @@ const LinkedInIcon = () => (
 );
 
 const Footer = () => {
+  const socialLinks = [
+    { href: "https://github.com/PREM015", Icon: GithubIcon, label: "GitHub" },
+    { href: "https://www.linkedin.com/in/prem-r-2655a3302", Icon: LinkedInIcon, label: "LinkedIn" },
+    { href: "https://twitter.com", Icon: TwitterIcon, label: "Twitter" },
+  ];
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  const quickLinks = [
+    { href: "/services", label: "Services" },
+    { href: "/skills", label: "Skills" },
+    { href: "/resume.pdf", label: "Resume", target: "_blank" },
+    { href: "/faq", label: "FAQs" },
+  ];
+
   return (
-    <footer className="relative w-full overflow-hidden bg-black text-gray-300 mt-20">
+    <footer className="relative w-full overflow-hidden bg-black text-gray-200 mt-20">
       <Vortex
         backgroundColor="black"
-        className="flex flex-col items-center justify-center w-full px-4 py-16"
+        className="flex flex-col items-center justify-center w-full px-4 py-20"
         containerClassName="w-full max-w-7xl mx-auto relative"
         particleCount={600}
         baseHue={210}
       >
         <div className="w-full px-4 md:px-8 z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+
             {/* About */}
-            <div className="max-w-md">
-              <p className="text-sm leading-relaxed mb-6">
+            <div>
+              <p className="text-sm leading-relaxed mb-6 text-white drop-shadow-md">
                 Full Stack Developer crafting modern, performant UIs with React, TypeScript, and Next.js. Passionate about web performance and UX design.
               </p>
-              <div className="flex justify-center sm:justify-start gap-4">
-                <Link href="https://github.com/PREM015" target="_blank" aria-label="GitHub">
-                  <GithubIcon />
-                </Link>
-                <Link href="https://www.linkedin.com/in/prem-r-2655a3302" target="_blank" aria-label="LinkedIn">
-                  <LinkedInIcon />
-                </Link>
-                <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
-                  <TwitterIcon />
-                </Link>
+              <div className="flex justify-center sm:justify-start gap-6">
+                {socialLinks.map(({ href, Icon, label }) => (
+                  <Link key={label} href={href} target="_blank" aria-label={label}>
+                    <motion.div
+                      whileHover={{ scale: 1.3, rotate: 10 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="transition-colors duration-300 text-white hover:text-cyan-400 drop-shadow-lg"
+                    >
+                      <Icon />
+                    </motion.div>
+                  </Link>
+                ))}
               </div>
             </div>
 
             {/* Navigation */}
-            <div className="break-words">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
+            <div>
+              <h6 className="text-xl font-orbitron font-bold text-white mb-4 drop-shadow-md">
                 Navigation
               </h6>
-              <ul className="space-y-2 text-sm font-light tracking-wide">
-                <li><Link href="/" className="hover:text-cyan-400 transition">Home</Link></li>
-                <li><Link href="/about" className="hover:text-cyan-400 transition">About</Link></li>
-                <li><Link href="/projects" className="hover:text-cyan-400 transition">Projects</Link></li>
-                <li><Link href="/contact" className="hover:text-cyan-400 transition">Contact</Link></li>
+              <ul className="space-y-3 text-sm font-medium tracking-wide">
+                {navLinks.map(({ href, label }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="relative text-pink-500 hover:text-yellow-400 transition-all duration-300 group font-bold"
+                    >
+                      <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-400 transition-all group-hover:w-full"></span>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Quick Links */}
-            <div className="break-words">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
+            <div>
+              <h6 className="text-xl font-orbitron font-bold text-white mb-4 drop-shadow-md">
                 Quick Links
               </h6>
-              <ul className="space-y-2 text-sm font-light tracking-wide">
-                <li><Link href="/services" className="hover:text-cyan-400 transition">Services</Link></li>
-                <li><Link href="/skills" className="hover:text-cyan-400 transition">Skills</Link></li>
-                <li><Link href="/resume.pdf" target="_blank" className="hover:text-cyan-400 transition">Resume</Link></li>
-                <li><Link href="/faq" className="hover:text-cyan-400 transition">FAQs</Link></li>
+              <ul className="space-y-3 text-sm font-medium tracking-wide">
+                {quickLinks.map(({ href, label, target }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      target={target}
+                      className="relative text-green-400 hover:text-yellow-400 transition-all duration-300 group font-bold"
+                    >
+                      <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-400 transition-all group-hover:w-full"></span>
+                      {label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Contact Info */}
-            <div className="break-words">
-              <h6 className="text-xl font-orbitron font-bold text-white mb-4 border-b-2 border-cyan-500 inline-block pb-1">
+            {/* Contact */}
+            <div>
+              <h6 className="text-xl font-orbitron font-bold text-white mb-4 drop-shadow-md">
                 Contact
               </h6>
-              <p className="text-sm mb-2">
-                <span className="text-cyan-400">Email</span><br />
+              <p className="text-sm mb-2 text-white drop-shadow-sm">
+                <span className="text-cyan-400 font-semibold">Email</span><br />
                 contact@rajportfolio.dev
               </p>
-              <p className="text-sm">
-                <span className="text-cyan-400">Based in</span><br />
+              <p className="text-sm text-white drop-shadow-sm">
+                <span className="text-cyan-400 font-semibold">Based in</span><br />
                 India
               </p>
             </div>
+
           </div>
 
           {/* Footer Bottom */}
-          <div className="mt-12 border-t border-neutral-700 pt-6 text-center text-sm text-neutral-400 font-light">
+          <div className="mt-16 border-t border-neutral-700 pt-6 text-center text-sm text-neutral-400 font-light drop-shadow-md">
             © {new Date().getFullYear()} <span className="text-white font-semibold">Raj Portfolio</span>. Built with 💙 using Next.js.
           </div>
         </div>
