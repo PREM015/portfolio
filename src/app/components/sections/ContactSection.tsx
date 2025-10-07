@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const [status, setStatus] = useState<string>("");
-  const formSubmitURL = "https://formsubmit.co/rprem3096@gmail.com"
+  const formSubmitURL = process.env.NEXT_PUBLIC_FORMSUBMIT_ID ?? "";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
