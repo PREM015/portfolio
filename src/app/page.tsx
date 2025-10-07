@@ -3,7 +3,7 @@
 import HeroSection from "@/app/components/sections/HeroSection";
 import ProjectsSection from "@/app/components/sections/ProjectsSection";
 import Skillssection from "./components/sections/Skillssection";
-import TechMarquee from "@/app/components/sections/TechMarquee";
+import {TechMarquee} from "@/app/components/sections/TechMarquee";
 
 
 export default function Home() {

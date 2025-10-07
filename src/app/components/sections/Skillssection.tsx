@@ -1,174 +1,114 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 
-type Skill = {
-  name: string;
-  level: number; // percentage
-};
-
-const skillCategories: { title: string; skills: Skill[] }[] = [
+// Skills grouped by category with proper white GitHub and Vercel logos
+const skillOverview = [
   {
-    title: "Frontend",
+    category: "Frontend",
     skills: [
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 88 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "TypeScript", level: 85 },
-      { name: "Framer Motion", level: 80 },
-      { name: "Redux", level: 82 },
-      { name: "Zustand", level: 78 },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", color: "#61DAFB" },
+      { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", color: "#000000" },
+      { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", color: "#38BDF8" },
+      { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", color: "#3178C6" },
+      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", color: "#E34F26" },
+      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", color: "#1572B6" },
     ],
   },
   {
-    title: "Backend",
+    category: "Backend",
     skills: [
-      { name: "Node.js", level: 80 },
-      { name: "Express.js", level: 75 },
-      { name: "Prisma ORM", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "Supabase", level: 78 },
-      { name: "FastAPI", level: 70 },
-      { name: "MongoDB", level: 75 },
+      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", color: "#339933" },
+      { name: "Prisma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg", color: "#0C344B" },
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", color: "#3776AB" },
+      { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", color: "#336791" },
+      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", color: "#47A248" },
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", color: "#007396" },
     ],
   },
   {
-    title: "DevOps & Cloud",
+    category: "Tools & DevOps",
     skills: [
-      { name: "Docker", level: 75 },
-      { name: "Git & GitHub", level: 95 },
-      { name: "GitHub Actions", level: 80 },
-      { name: "Vercel", level: 85 },
-      { name: "AWS Basics", level: 70 },
-      { name: "Firebase", level: 72 },
-    ],
-  },
-  {
-    title: "Other Tools",
-    skills: [
-      { name: "Figma", level: 75 },
-      { name: "Jest & Testing", level: 70 },
-      { name: "Cypress", level: 68 },
-      { name: "Playwright", level: 65 },
-      { name: "REST APIs", level: 90 },
-      { name: "GraphQL", level: 72 },
-      { name: "WebSockets", level: 77 },
-      { name: "Python", level: 82 },
+      { name: "Git & GitHub", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg", color: "#ffffff" }, // true GitHub logo in white
+      { name: "Vercel", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg", color: "#ffffff" },   // true Vercel logo in white
+      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", color: "#2496ED" },
+      { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", color: "#F24E1E" },
     ],
   },
 ];
 
-// Map levels to labels
-const getLevelLabel = (level: number): string => {
-  if (level >= 90) return "Master";
-  if (level >= 80) return "Advanced";
-  return "Intermediate";
-};
-
-// Animated counter
-const Counter: React.FC<{ target: number }> = ({ target }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const step = Math.max(15, Math.floor(1000 / target));
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start === target) clearInterval(timer);
-    }, step);
-    return () => clearInterval(timer);
-  }, [target]);
-
-  return <>{count}%</>;
-};
-
 const SkillsSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState(0);
-
   return (
-    <section className="relative py-20 px-6 md:px-16 w-full bg-gradient-to-b from-black via-gray-950 to-black text-white">
-      {/* Title */}
+    <section className="py-24 px-4 md:px-16 w-full bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white relative overflow-hidden">
+
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text select-none"
+        className="text-3xl md:text-4xl font-extrabold text-center mb-16 bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-400 text-transparent bg-clip-text select-none"
       >
-        My Technical Skills
+        My Key Skills
       </motion.h2>
 
-      {/* Tabs */}
-      <nav className="flex flex-wrap justify-center gap-3 mb-12">
-        {skillCategories.map((cat, i) => {
-          const active = activeCategory === i;
-          return (
-            <button
-              key={cat.title}
-              onClick={() => setActiveCategory(i)}
-              className={`px-5 py-2 text-sm sm:text-base font-semibold rounded-full transition-all duration-300 ${
-                active
-                  ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-black shadow-lg"
-                  : "bg-white/10 text-white/70 hover:bg-white/20"
-              }`}
-            >
-              {cat.title}
-            </button>
-          );
-        })}
-      </nav>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        {skillOverview.map((cat) => (
+          <motion.div
+            key={cat.category}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center"
+          >
+            <h3 className="text-xl font-semibold mb-6 relative after:content-[''] after:block after:w-16 after:h-1 after:rounded-full after:bg-gradient-to-r after:from-purple-400 after:to-pink-500">
+              {cat.category}
+            </h3>
 
-      {/* Skills Grid */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-        >
-          {skillCategories[activeCategory].skills.map((skill, i) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.07 }}
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "rgba(59,130,246,0.08)",
-              }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-md backdrop-blur-md flex flex-col gap-3"
-            >
-              {/* Skill Header */}
-              <div className="flex justify-between items-center">
-                <h4 className="text-lg font-semibold text-cyan-300">
-                  {skill.name}
-                </h4>
-                <span className="text-cyan-400 font-bold text-sm">
-                  <Counter target={skill.level} />
-                </span>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+            <div className="flex flex-wrap justify-center gap-6">
+              {cat.skills.map((skill, i) => (
                 <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1 }}
-                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                />
-              </div>
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05, type: "spring", stiffness: 120 }}
+                  whileHover={{ scale: 1.2, rotateY: 5, rotateX: 3 }}
+                  className="relative flex flex-col items-center justify-center w-24 h-24 rounded-full border border-white/10 shadow-xl backdrop-blur-sm transition-all duration-500 group overflow-visible bg-gray-800/30"
+                >
+                  {/* Glow Halo */}
+                  <span
+                    className="absolute -z-10 w-28 h-28 rounded-full opacity-20 blur-xl group-hover:opacity-50 transition-all duration-500 pointer-events-none"
+                    style={{ backgroundColor: skill.color }}
+                  ></span>
 
-              {/* Label */}
-              <p className="text-sm text-gray-400 mt-1">
-                {getLevelLabel(skill.level)}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
+                  {/* Logo with up-down floating animation */}
+                  <motion.img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-12 h-12 object-contain"
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ repeat: Infinity, duration: 3 + i * 0.1, ease: "easeInOut" }}
+                  />
+
+                  {/* Tech name with up-down animation */}
+                  <motion.p
+                    className="text-xs font-semibold text-gray-200 mt-2 text-center"
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ repeat: Infinity, duration: 3 + i * 0.1, ease: "easeInOut" }}
+                  >
+                    {skill.name}
+                  </motion.p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-400 text-sm animate-bounce"
+      >
+        Swipe to see more
+      </motion.div>
     </section>
   );
 };
