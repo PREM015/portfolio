@@ -40,13 +40,13 @@ const Footer = () => {
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
+const quickLinks = [
+  { href: "/Skills", label: "Services" },
+  { href: "/Skills", label: "Skills" },   
+  { href: "/files/Prem.pdf", label: "Resume", target: "_blank", rel: "noopener noreferrer" },
+  { href: "/faq", label: "FAQs" },       
+];
 
-  const quickLinks = [
-    { href: "/services", label: "Services" },
-    { href: "/skills", label: "Skills" },
-    { href: "/resume.pdf", label: "Resume", target: "_blank" },
-    { href: "/faq", label: "FAQs" },
-  ];
 
   return (
     <footer className="relative w-full overflow-hidden bg-black text-gray-200 mt-20">
@@ -106,11 +106,12 @@ const Footer = () => {
                 Quick Links
               </h6>
               <ul className="space-y-3 text-sm font-medium tracking-wide">
-                {quickLinks.map(({ href, label, target }) => (
+                {quickLinks.map(({ href, label, target, rel }) => (
                   <li key={label}>
                     <Link
                       href={href}
                       target={target}
+                      rel={rel}
                       className="relative text-green-400 hover:text-yellow-400 transition-all duration-300 group font-bold"
                     >
                       <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-yellow-400 transition-all group-hover:w-full"></span>
