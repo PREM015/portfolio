@@ -1,39 +1,47 @@
 "use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function ContactPage() {
+export default function ContactSection() {
   const [status, setStatus] = useState<string>("");
-  const formSubmitURL = process.env.NEXT_PUBLIC_FORMSUBMIT_ID ?? "";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const form = e.currentTarget;
 
-    try {
-      const res = await fetch(formSubmitURL, {
-        method: "POST",
-        body: new FormData(form),
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (res.ok) {
-        setStatus("✅ Message sent successfully! 🎉");
-        form.reset();
-      } else {
-        setStatus("❌ Failed to send message. Try again later.");
-      }
-    } catch {
-      setStatus("⚠️ Network error. Please try again.");
-    }
+  const formData = new FormData(form);
+  const data = {
+    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
+    name: formData.get("name") as string,
+    email: formData.get("email") as string,
+    subject: formData.get("subject") as string,
+    message: formData.get("message") as string,
   };
+
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
+
+    if (result.success) {
+      setStatus("✅ Message sent successfully! 🎉");
+      form.reset();
+    } else {
+      setStatus("❌ Failed to send message. Try again later.");
+    }
+  } catch {
+    setStatus("⚠️ Network error. Please try again.");
+  }
+};
 
   return (
     <section className="relative py-20 px-6 sm:px-10 md:px-16 bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white overflow-hidden">
-      {/* Background highlights */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_70%)] pointer-events-none" />
       <div className="absolute -top-20 -left-10 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-pulse" />
@@ -54,8 +62,6 @@ export default function ContactPage() {
         transition={{ duration: 0.8 }}
       >
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <input type="hidden" name="_captcha" value="false" />
-
           <div className="grid sm:grid-cols-2 gap-6">
             <input
               type="text"

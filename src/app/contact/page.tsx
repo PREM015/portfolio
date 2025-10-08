@@ -1,15 +1,48 @@
-// 📄 File: app/contact/page.tsx
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "@/app/components/ui/input";
 import { Input } from "@/app/components/ui/input";
 import { cn } from "@/lib/utils";
 
 const ContactPage = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Contact form submitted");
+  const [status, setStatus] = useState<string>("");
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  const data = {
+    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
+    firstname: formData.get("firstname") as string,
+    lastname: formData.get("lastname") as string,
+    email: formData.get("email") as string,
+    subject: formData.get("subject") as string,
+    message: formData.get("message") as string,
   };
+
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
+
+    if (result.success) {
+      setStatus("✅ Message sent successfully!");
+      form.reset();
+    } else {
+      setStatus("❌ Failed to send message. Try again later.");
+    }
+  } catch {
+    setStatus("⚠️ Network error. Please try again.");
+  }
+};
 
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-black p-4 md:rounded-2xl md:p-8">
@@ -27,6 +60,7 @@ const ContactPage = () => {
             </Label>
             <Input
               id="firstname"
+              name="firstname"
               placeholder="John"
               type="text"
               required
@@ -39,6 +73,7 @@ const ContactPage = () => {
             </Label>
             <Input
               id="lastname"
+              name="lastname"
               placeholder="Doe"
               type="text"
               required
@@ -53,6 +88,7 @@ const ContactPage = () => {
           </Label>
           <Input
             id="email"
+            name="email"
             placeholder="you@example.com"
             type="email"
             required
@@ -66,6 +102,7 @@ const ContactPage = () => {
           </Label>
           <Input
             id="subject"
+            name="subject"
             placeholder="Project Inquiry"
             type="text"
             required
@@ -79,6 +116,7 @@ const ContactPage = () => {
           </Label>
           <textarea
             id="message"
+            name="message"
             placeholder="Write your message here..."
             required
             className={cn(
@@ -95,13 +133,16 @@ const ContactPage = () => {
           <BottomGradient />
         </button>
       </form>
+
+      {status && (
+        <p className="mt-4 text-sm text-cyan-400 font-medium">{status}</p>
+      )}
     </div>
   );
 };
 
 export default ContactPage;
 
-// 🌈 Gradient Line under Buttons
 const BottomGradient = () => (
   <>
     <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
@@ -109,7 +150,6 @@ const BottomGradient = () => (
   </>
 );
 
-// 🔤 Form Label + Input wrapper
 const LabelInputContainer = ({
   children,
   className,
