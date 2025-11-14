@@ -33,7 +33,7 @@ const faqs: FAQItem[] = [
   {
     question: "How can I contact you?",
     answer:
-      "You can contact me via the contact page, email at contact@rajportfolio.dev, or connect on LinkedIn for professional inquiries.",
+      "You can contact me via the contact page, email at rprem3096@gmail.com, or connect on LinkedIn for professional inquiries.",
   },
   {
     question: "Do you offer UI/UX design services?",

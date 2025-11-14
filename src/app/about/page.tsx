@@ -46,9 +46,9 @@ const developerJourney = [
 ];
 
 const achievements = [
-  { label: "Projects Completed", value: 25 },
-  { label: "GitHub Repos", value: 12 },
-  { label: "Clients Worked With", value: 8 },
+  { label: "Projects Completed", value: 10 },
+  { label: "GitHub Repos", value: 15 },
+  { label: "Clients Worked With", value: 5 },
   { label: "Years Experience", value: 2 },
 ];
 
@@ -118,8 +118,8 @@ export default function AboutPage() {
           transition={{ delay: 1 }}
           className="mt-6 flex justify-center gap-6 text-2xl text-gray-300"
         >
-          <a href="mailto:premraj@example.com" className="hover:text-cyan-400 transition-colors"><FaEnvelope /></a>
-          <a href="https://github.com" target="_blank" className="hover:text-cyan-400 transition-colors"><FaGithub /></a>
+          <a href="mailto:rprem3096@gmail.com" className="hover:text-cyan-400 transition-colors"><FaEnvelope /></a>
+          <a href="https://github.com/PREM015" target="_blank" className="hover:text-cyan-400 transition-colors"><FaGithub /></a>
         </motion.div>
       </div>
 
@@ -244,7 +244,7 @@ export default function AboutPage() {
       {/* CTA */}
       <div className="max-w-4xl mx-auto mt-32 text-center relative z-10">
         <motion.a
-          href="#contact"
+          href="contact"
           whileHover={{ scale: 1.1 }}
           className="inline-block bg-green-400 hover:bg-cyan-400 text-black font-bold px-8 py-4 rounded-3xl shadow-xl transition-colors"
         >

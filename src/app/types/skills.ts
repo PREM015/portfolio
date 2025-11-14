@@ -6,4 +6,5 @@ export interface Tech {
   description: string;
   level: number;
   link?: string;
+  grade: string;
 }

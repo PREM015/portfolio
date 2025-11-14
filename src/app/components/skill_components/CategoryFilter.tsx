@@ -100,7 +100,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
               {isSelected && (
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent"
                   initial={{ x: "-100%" }}
                   animate={{ x: "200%" }}
                   transition={{

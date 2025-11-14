@@ -91,7 +91,7 @@ const debouncedSearch = useMemo(
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
+    <div className="relative min-h-screen overflow-hidden bg-linear-to-br from-slate-950 via-purple-950 to-slate-950">
       {!shouldReduceMotion && (
         <Suspense fallback={null}>
           <div className="absolute inset-0 opacity-30">
@@ -181,7 +181,7 @@ const debouncedSearch = useMemo(
             transition={{ duration: 0.8, delay: 0.2 }}
             className="inline-block"
           >
-            <h1 className="text-5xl sm:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 animate-gradient-x">
+            <h1 className="text-5xl sm:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-linear-to-r from-cyan-400 via-purple-500 to-pink-500 animate-gradient-x">
               My Tech Arsenal
             </h1>
           </motion.div>
@@ -199,7 +199,7 @@ const debouncedSearch = useMemo(
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="h-1 w-64 mx-auto mt-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full"
+            className="h-1 w-64 mx-auto mt-6 bg-linear-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full"
           />
         </motion.div>
 

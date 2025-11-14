@@ -2,7 +2,7 @@ import { Tech } from "@/app/types/skills";
 
 // React icons
 import { BiLogoVisualStudio } from "react-icons/bi";
-import { SiCanva, SiTerraform } from "react-icons/si"; 
+import { SiCanva, SiTerraform } from "react-icons/si";
 
 import { SiPm2 } from "react-icons/si";
 import { SiMariadb } from "react-icons/si";
@@ -75,17 +75,23 @@ import {
   SiWebstorm,
   SiNpm,
   SiAdobephotoshop,
-
 } from "react-icons/si";
 
-
-  
-
-
-
+// 🔥 Function to calculate grade based on level
+export const getTechGrade = (level: number): string => {
+  if (level <= 10) return "Novice 🟢";
+  if (level <= 20) return "Beginner 🟩";
+  if (level <= 30) return "Learner 🟦";
+  if (level <= 40) return "Intermediate 🔵";
+  if (level <= 50) return "Skilled 🟣";
+  if (level <= 60) return "Proficient 🟠";
+  if (level <= 70) return "Advanced 🟡";
+  if (level <= 80) return "Expert 🔴";
+  if (level <= 90) return "Excellent 💎";
+  return "Master 🌟";
+};
 
 export const TECH_STACK: Tech[] = [
-
   // ----------------------------- FRONTEND -----------------------------
   {
     name: "HTML5",
@@ -93,52 +99,44 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#E34F26",
     description: "Markup language for web pages",
-    level: 97,
+    level: 100,
     link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
     name: "CSS3",
     icon: FaCss3Alt,
     category: "Frontend",
-    color: "#1572B6",
+    color: "#0096FF",
     description: "Styling the web with modern layouts",
-    level: 95,
+    level: 90,
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
-  {
-    name: "Sass",
-    icon: FaSass,
-    category: "Frontend",
-    color: "#CC6699",
-    description: "CSS with superpowers",
-    level: 88,
-    link: "https://sass-lang.com",
-  },
+
   {
     name: "JavaScript",
     icon: SiJavascript,
     category: "Frontend",
-    color: "#F7DF1E",
+    color: "#F0DB4F",
     description: "Core web programming language",
-    level: 95,
+    level: 85,
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
     name: "TypeScript",
     icon: SiTypescript,
     category: "Frontend",
-    color: "#3178C6",
+    color: "#0096FF",
     description: "Type-safe JavaScript",
-    level: 92,
+    level: 85,
     link: "https://www.typescriptlang.org",
   },
   {
     name: "React",
     icon: FaReact,
     category: "Frontend",
-    color: "#61DAFB",
+    color: "#61DBFB",
     description: "Building interactive UIs",
-    level: 95,
+    level: 90,
     link: "https://react.dev",
   },
   {
@@ -147,7 +145,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#FFFFFF",
     description: "React framework for production",
-    level: 92,
+    level: 80,
     link: "https://nextjs.org",
   },
   {
@@ -156,7 +154,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#06B6D4",
     description: "Utility-first CSS framework",
-    level: 93,
+    level: 90,
     link: "https://tailwindcss.com",
   },
   {
@@ -186,7 +184,6 @@ export const TECH_STACK: Tech[] = [
     level: 87,
     link: "https://www.framer.com/motion",
   },
-
   {
     name: "React Hook Form",
     icon: SiReacthookform,
@@ -196,14 +193,13 @@ export const TECH_STACK: Tech[] = [
     level: 85,
     link: "https://react-hook-form.com",
   },
-
   {
     name: "React Query",
     icon: SiReactquery,
     category: "Frontend",
     color: "#FF4154",
     description: "Server-state management and caching for React apps",
-    level: 83,
+    level: 80,
     link: "https://tanstack.com/query/latest",
   },
   {
@@ -224,13 +220,22 @@ export const TECH_STACK: Tech[] = [
     level: 85,
     link: "https://mui.com",
   },
+    {
+    name: "Sass",
+    icon: FaSass,
+    category: "Frontend",
+    color: "#CC6699",
+    description: "CSS with superpowers",
+    level: 40,
+    link: "https://sass-lang.com",
+  },
   {
     name: "Chakra UI",
     icon: SiChakraui,
     category: "Frontend",
     color: "#319795",
     description: "Accessible React component library",
-    level: 82,
+    level: 60,
     link: "https://chakra-ui.com",
   },
   {
@@ -239,7 +244,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#FF4785",
     description: "UI component explorer and documentation",
-    level: 80,
+    level: 40,
     link: "https://storybook.js.org",
   },
   {
@@ -247,34 +252,23 @@ export const TECH_STACK: Tech[] = [
     icon: SiSemanticuireact,
     category: "Frontend",
     color: "#00BFFF",
-    description: "UI framework with prebuilt React components and themes",
-    level: 80,
+    description:
+      "UI framework with prebuilt React components and themes",
+    level: 50,
     link: "https://react.semantic-ui.com",
   },
-
-
 
   //----------backend---------
   {
     name: "Node.js",
     icon: FaNodeJs,
     category: "Backend",
-    color: "#339933",
+    color: "#44D62C",
     description: "JavaScript runtime for server-side",
-    level: 92,
+    level: 90,
     link: "https://nodejs.org",
   },
-  {
-  name: "Mongoose",
-  icon: SiMongodb,
-  category: "Backend",
-  color: "#47A248",
-  description: "ODM library to interact with MongoDB",
-  level: 85,
-  link: "https://mongoosejs.com/",
-},
-
-  {
+  { 
     name: "Express.js",
     icon: SiExpress,
     category: "Backend",
@@ -296,10 +290,19 @@ export const TECH_STACK: Tech[] = [
     name: "Python",
     icon: FaPython,
     category: "Backend",
-    color: "#3776AB",
+    color: "#FFD43B",
     description: "General-purpose programming language",
     level: 88,
     link: "https://www.python.org",
+  },
+  {
+    name: "Mongoose",
+    icon: SiMongodb,
+    category: "Backend",
+    color: "#f6e406",
+    description: "ODM library to interact with MongoDB",
+    level: 85,
+    link: "https://mongoosejs.com/",
   },
   {
     name: "Django",
@@ -307,14 +310,14 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#31c916",
     description: "High-level Python web framework",
-    level: 82,
+    level: 50,
     link: "https://www.djangoproject.com",
   },
   {
     name: "FastAPI",
     icon: SiFastapi,
     category: "Backend",
-    color: "#009688",
+    color: "#00FFFF",
     description: "Modern Python async web framework",
     level: 86,
     link: "https://fastapi.tiangolo.com",
@@ -323,9 +326,9 @@ export const TECH_STACK: Tech[] = [
     name: "GraphQL",
     icon: SiGraphql,
     category: "Backend",
-    color: "#E10098",
+    color: "#f4447c",
     description: "API query language",
-    level: 84,
+    level: 40,
     link: "https://graphql.org",
   },
   {
@@ -341,27 +344,27 @@ export const TECH_STACK: Tech[] = [
     name: "WebSockets / Socket.io",
     icon: FaNodeJs,
     category: "Backend",
-    color: "#008080",
+    color: "#24C29F",
     description: "Real-time communication",
-    level: 82,
+    level: 50,
     link: "https://socket.io",
   },
   {
     name: "PM2",
-    icon: SiPm2 ,
+    icon: SiPm2,
     category: "Backend",
-    color: "#d481d6",
+    color: "#f01d0d",
     description: "Node process manager",
-    level: 85,
+    level: 40,
     link: "https://pm2.keymetrics.io",
   },
   {
     name: "Nginx",
     icon: FaLinux,
     category: "Backend",
-    color: "#009639",
+    color: "#00fd60",
     description: "Web server & reverse proxy",
-    level: 80,
+    level: 40,
     link: "https://www.nginx.com",
   },
   {
@@ -370,7 +373,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#FF6600",
     description: "Job queue & task scheduler",
-    level: 82,
+    level: 40,
     link: "https://docs.bullmq.io",
   },
   {
@@ -379,16 +382,16 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#FF9900",
     description: "Serverless backend functions",
-    level: 80,
+    level: 40,
     link: "https://aws.amazon.com/lambda/",
   },
   {
     name: "Terraform",
     icon: SiTerraform,
     category: "Backend",
-    color: "#623CE4",
+    color: "#8C77EB",
     description: "Infrastructure as code",
-    level: 78,
+    level: 30,
     link: "https://www.terraform.io",
   },
 
@@ -397,7 +400,7 @@ export const TECH_STACK: Tech[] = [
     name: "MongoDB",
     icon: SiMongodb,
     category: "Database",
-    color: "#47A248",
+    color: "#00ED64",
     description: "NoSQL document database",
     level: 89,
     link: "https://www.mongodb.com",
@@ -406,7 +409,7 @@ export const TECH_STACK: Tech[] = [
     name: "PostgreSQL",
     icon: SiPostgresql,
     category: "Database",
-    color: "#4169E1",
+    color: "#05b9f5",
     description: "Advanced relational database",
     level: 87,
     link: "https://www.postgresql.org",
@@ -417,14 +420,14 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#DC382D",
     description: "In-memory data structure store",
-    level: 83,
+    level: 50,
     link: "https://redis.io",
   },
   {
     name: "Prisma ORM",
     icon: SiPrisma,
     category: "Database",
-    color: "#5A67D8",
+    color: "#4BDDC8",
     description: "Next-gen ORM for Node & TS",
     level: 90,
     link: "https://www.prisma.io",
@@ -442,7 +445,7 @@ export const TECH_STACK: Tech[] = [
     name: "MySQL",
     icon: SiMysql,
     category: "Database",
-    color: "#4479A1",
+    color: "#36d4f7",
     description: "Popular relational database",
     level: 85,
     link: "https://www.mysql.com",
@@ -451,7 +454,7 @@ export const TECH_STACK: Tech[] = [
     name: "SQLite",
     icon: SiSqlite,
     category: "Database",
-    color: "#1b8abf",
+    color: "#1E90FF",
     description: "Lightweight relational database",
     level: 80,
     link: "https://www.sqlite.org",
@@ -460,7 +463,7 @@ export const TECH_STACK: Tech[] = [
     name: "Firebase DB",
     icon: SiFirebase,
     category: "Database",
-    color: "#FFCA28",
+    color: "#FF9100",
     description: "NoSQL cloud database",
     level: 85,
     link: "https://firebase.google.com/products/realtime-database",
@@ -469,18 +472,18 @@ export const TECH_STACK: Tech[] = [
     name: "CockroachDB",
     icon: SiPostgresql,
     category: "Database",
-    color: "#0066CC",
+    color: "#007FFF",
     description: "Distributed SQL database",
-    level: 78,
+    level: 40,
     link: "https://www.cockroachlabs.com",
   },
   {
     name: "MariaDB",
     icon: SiMariadb,
     category: "Database",
-    color: "#003545",
+    color: "#3469fa",
     description: "Open-source relational database",
-    level: 78,
+    level: 40,
     link: "https://mariadb.org",
   },
   {
@@ -489,34 +492,34 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#F80000",
     description: "Enterprise relational database",
-    level: 78,
+    level: 40,
     link: "https://www.oracle.com/database/",
   },
   {
     name: "Microsoft SQL Server",
     icon: SiMysql,
     category: "Database",
-    color: "#CC2927",
+    color: "#F25022",
     description: "Enterprise relational database from Microsoft",
-    level: 78,
+    level: 50,
     link: "https://www.microsoft.com/en-us/sql-server",
   },
   {
-    name: "Cassandra",
+    name: "Apache Cassandra",
     icon: SiMongodb,
     category: "Database",
-    color: "#128C7E",
+    color: "#00B0E8",
     description: "NoSQL wide-column store",
-    level: 78,
+    level: 40,
     link: "https://cassandra.apache.org/",
   },
   {
     name: "Elasticsearch",
     icon: SiMongodb,
     category: "Database",
-    color: "#005571",
+    color: "#FED10A",
     description: "Search engine and analytics database",
-    level: 78,
+    level: 40,
     link: "https://www.elastic.co/elasticsearch/",
   },
 
@@ -525,9 +528,9 @@ export const TECH_STACK: Tech[] = [
     name: "Docker",
     icon: FaDocker,
     category: "DevOps",
-    color: "#2496ED",
+    color: "#1D63ED",
     description: "Containerization platform",
-    level: 88,
+    level: 50,
     link: "https://www.docker.com",
   },
   {
@@ -536,7 +539,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#326CE5",
     description: "Container orchestration",
-    level: 80,
+    level: 50,
     link: "https://kubernetes.io",
   },
   {
@@ -545,7 +548,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#FF9900",
     description: "Cloud computing platform",
-    level: 85,
+    level: 50,
     link: "https://aws.amazon.com",
   },
   {
@@ -554,7 +557,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#FCC624",
     description: "Server & CLI environment",
-    level: 85,
+    level: 40,
     link: "https://www.linux.org",
   },
   {
@@ -563,14 +566,14 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#00C7B7",
     description: "Frontend hosting & deployment",
-    level: 82,
+    level: 80,
     link: "https://www.netlify.com",
   },
   {
     name: "Vercel",
     icon: FaPalette,
     category: "DevOps",
-    color: "#000000",
+    color: "#F5F5F5",
     description: "Deployment for Next.js & frontends",
     level: 85,
     link: "https://vercel.com",
@@ -588,17 +591,16 @@ export const TECH_STACK: Tech[] = [
     name: "Jenkins",
     icon: SiJenkins,
     category: "DevOps",
-    color: "#D33833",
+    color: "#D33834",
     description: "CI/CD automation server",
-    level: 82,
+    level: 40,
     link: "https://www.jenkins.io",
   },
-
   {
     name: "GitHub Actions",
     icon: SiGithubactions,
     category: "DevOps",
-    color: "#2088FF",
+    color: "#3399FF",
     description: "CI/CD pipelines on GitHub",
     level: 80,
     link: "https://github.com/features/actions",
@@ -609,7 +611,7 @@ export const TECH_STACK: Tech[] = [
     name: "NextAuth.js",
     icon: SiNextra,
     category: "Auth",
-    color: "#F05032",
+    color: "#00D8FF",
     description: "Authentication for Next.js apps",
     level: 85,
     link: "https://next-auth.js.org",
@@ -627,7 +629,7 @@ export const TECH_STACK: Tech[] = [
     name: "Auth0",
     icon: SiFirebase,
     category: "Auth",
-    color: "#00ADEF",
+    color: "#EB5424",
     description: "Enterprise authentication platform",
     level: 82,
     link: "https://auth0.com",
@@ -645,7 +647,7 @@ export const TECH_STACK: Tech[] = [
     name: "SAML",
     icon: FaNodeJs,
     category: "Auth",
-    color: "#8A2BE2",
+    color: "#c100ff",
     description: "Enterprise SSO protocol",
     level: 80,
     link: "https://en.wikipedia.org/wiki/SAML",
@@ -654,7 +656,7 @@ export const TECH_STACK: Tech[] = [
     name: "RBAC / Permissions",
     icon: FaLock,
     category: "Auth",
-    color: "#6A1B9A",
+    color: "#b40dea",
     description: "Role-based access control & permission management",
     level: 82,
     link: "https://en.wikipedia.org/wiki/Role-based_access_control",
@@ -690,33 +692,31 @@ export const TECH_STACK: Tech[] = [
     name: "Session / Cookie Security",
     icon: FaCookieBite,
     category: "Auth",
-    color: "#795548",
+    color: "#d3c200",
     description: "Secure session management & cookie handling",
     level: 82,
     link: "https://owasp.org/www-project-top-ten/",
   },
 
-    // ----------------------------- TESTING -----------------------------
-    {
-      name: "Jest",
-      icon: SiJest,
-      category: "Testing",
-      color: "#C21325",
-      description: "Unit testing for JS/TS",
-      level: 86,
-      link: "https://jestjs.io",
-    },
-
-    {
-      name: "React Testing Library",
-      icon: FaReact,
-      category: "Testing",
-      color: "#61DAFB",
-      description: "Testing React components",
-      level: 85,
-      link: "https://testing-library.com/docs/react-testing-library/intro",
-    },
-
+  // ----------------------------- TESTING -----------------------------
+  {
+    name: "Jest",
+    icon: SiJest,
+    category: "Testing",
+    color: "#C21325",
+    description: "Unit testing for JS/TS",
+    level: 40,
+    link: "https://jestjs.io",
+  },
+  {
+    name: "React Testing Library",
+    icon: FaReact,
+    category: "Testing",
+    color: "#61DAFB",
+    description: "Testing React components",
+    level: 40,
+    link: "https://testing-library.com/docs/react-testing-library/intro",
+  },
 
   // ----------------------------- TOOLS -----------------------------
   {
@@ -791,7 +791,6 @@ export const TECH_STACK: Tech[] = [
     level: 90,
     link: "https://developer.chrome.com/docs/devtools/",
   },
-
   {
     name: "Node.js REPL / nvm",
     icon: FaNodeJs,
@@ -823,7 +822,7 @@ export const TECH_STACK: Tech[] = [
     name: "IntelliJ IDEA",
     icon: SiIntellijidea,
     category: "Tools",
-    color: "#000000",
+    color: "#FF9800",
     description: "IDE for Java, TypeScript, and more",
     level: 82,
     link: "https://www.jetbrains.com/idea/",
@@ -841,7 +840,7 @@ export const TECH_STACK: Tech[] = [
     name: "WebStorm",
     icon: SiWebstorm,
     category: "Tools",
-    color: "#000000",
+    color: "#FF9800",
     description: "IDE for JavaScript and TypeScript",
     level: 83,
     link: "https://www.jetbrains.com/webstorm/",
@@ -872,7 +871,7 @@ export const TECH_STACK: Tech[] = [
     category: "Design",
     color: "#F24E1E",
     description: "Collaborative design tool",
-    level: 85,
+    level: 50,
     link: "https://www.figma.com",
   },
   {
@@ -881,7 +880,7 @@ export const TECH_STACK: Tech[] = [
     category: "Design",
     color: "#FF61F6",
     description: "UI/UX design tool",
-    level: 82,
+    level: 30,
     link: "https://www.adobe.com/products/xd.html",
   },
   {
@@ -890,7 +889,7 @@ export const TECH_STACK: Tech[] = [
     category: "Design",
     color: "#00C4CC",
     description: "Online graphic design tool",
-    level: 80,
+    level: 60,
     link: "https://www.canva.com",
   },
   {
@@ -899,56 +898,57 @@ export const TECH_STACK: Tech[] = [
     category: "Design",
     color: "#31A8FF",
     description: "Advanced image editing and graphics",
-    level: 82,
+    level: 30,
     link: "https://www.adobe.com/products/photoshop.html",
   },
+].map((tech) => ({
+  ...tech,
+  grade: getTechGrade(tech.level),
+}));
 
-
-
-  ];
-
-  export const CATEGORY_CONFIG: Record<
-    string,
-    { color: string; bgClass: string; hoverClass: string }
-  > = {
-    Frontend: {
-      color: "#61DAFB",
-      bgClass: "bg-gradient-to-r from-cyan-500 to-blue-500",
-      hoverClass: "hover:bg-cyan-500/20",
-    },
-    Backend: {
-      color: "#339933",
-      bgClass: "bg-gradient-to-r from-green-500 to-emerald-600",
-      hoverClass: "hover:bg-green-500/20",
-    },
-    Database: {
-      color: "#4169E1",
-      bgClass: "bg-gradient-to-r from-blue-600 to-indigo-600",
-      hoverClass: "hover:bg-blue-600/20",
-    },
-    DevOps: {
-      color: "#FF9900",
-      bgClass: "bg-gradient-to-r from-orange-500 to-yellow-500",
-      hoverClass: "hover:bg-orange-500/20",
-    },
-    Auth: {
-      color: "#000000",
-      bgClass: "bg-gradient-to-r from-gray-700 to-gray-900",
-      hoverClass: "hover:bg-gray-800/20",
-    },
-    Testing: {
-      color: "#C21325",
-      bgClass: "bg-gradient-to-r from-red-600 to-rose-600",
-      hoverClass: "hover:bg-red-600/20",
-    },
-    Tools: {
-      color: "#8DD6F9",
-      bgClass: "bg-gradient-to-r from-sky-400 to-cyan-400",
-      hoverClass: "hover:bg-sky-400/20",
-    },
-    Design: {
-      color: "#F24E1E",
-      bgClass: "bg-gradient-to-r from-pink-500 to-rose-500",
-      hoverClass: "hover:bg-pink-500/20",
-    },
-  };
+export const CATEGORY_CONFIG: Record<
+  string,
+  { color: string; bgClass: string; hoverClass: string }
+> = {
+  Frontend: {
+    color: "#61DAFB",
+    bgClass: "bg-gradient-to-r from-cyan-500 to-blue-500",
+    hoverClass: "hover:bg-cyan-500/20",
+  },
+  Backend: {
+    color: "#339933",
+    bgClass: "bg-gradient-to-r from-green-500 to-emerald-600",
+    hoverClass: "hover:bg-green-500/20",
+  },
+  Database: {
+    color: "#4169E1",
+    bgClass: "bg-gradient-to-r from-blue-600 to-indigo-600",
+    hoverClass: "hover:bg-blue-600/20",
+  },
+  DevOps: {
+    color: "#FF9900",
+    bgClass: "bg-gradient-to-r from-orange-500 to-yellow-500",
+    hoverClass: "hover:bg-orange-500/20",
+  },
+  Auth: {
+    color: "#000000",
+    bgClass: "bg-gradient-to-r from-gray-700 to-gray-900",
+    hoverClass: "hover:bg-gray-800/20",
+  },
+  Testing: {
+    color: "#C21325",
+    bgClass: "bg-gradient-to-r from-red-600 to-rose-600",
+    hoverClass: "hover:bg-red-600/20",
+  },
+  Tools: {
+    color: "#8DD6F9",
+    bgClass: "bg-gradient-to-r from-sky-400 to-cyan-400",
+    hoverClass: "hover:bg-sky-400/20",
+  },
+  Design: {
+    color: "#F24E1E",
+    bgClass: "bg-gradient-to-r from-pink-500 to-rose-500",
+    hoverClass: "hover:bg-pink-500/20",
+  },
+  
+};
