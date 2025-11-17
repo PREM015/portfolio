@@ -3,6 +3,7 @@
 import { Tech } from "@/app/types/skills";
 // React icons
 import { BiLogoVisualStudio } from "react-icons/bi";
+import { LuDatabaseZap } from "react-icons/lu";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { LiaBullseyeSolid } from "react-icons/lia";
 import { DiMsqlServer } from "react-icons/di";
@@ -597,6 +598,16 @@ export const TECH_STACK: Tech[] = [
     level: 50,
     link: "https://www.microsoft.com/en-us/sql-server",
   },
+  {
+  name: "NeonDB",
+  icon: LuDatabaseZap, 
+  category: "Database",
+  color: "#05b9f5",
+  description: "Serverless PostgreSQL-compatible cloud database",
+  level: 85,
+  link: "https://neon.tech",
+},
+
   {
     name: "MariaDB",
     icon: SiMariadb,
