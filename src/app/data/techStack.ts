@@ -1,12 +1,11 @@
 import { Tech } from "@/app/types/skills";
-
 // React icons
 import { BiLogoVisualStudio } from "react-icons/bi";
-import { SiCanva, SiTerraform } from "react-icons/si";
-
-import { SiPm2 } from "react-icons/si";
-import { SiMariadb } from "react-icons/si";
-
+import { AiFillThunderbolt } from "react-icons/ai";
+import { LiaBullseyeSolid } from "react-icons/lia";
+import { DiMsqlServer } from "react-icons/di";
+import { TbApi } from "react-icons/tb";
+import { BsShieldLockFill } from "react-icons/bs";
 import {
   FaReact,
   FaNodeJs,
@@ -20,7 +19,7 @@ import {
   FaCss3Alt,
   FaLinux,
   FaBootstrap,
-  FaPalette,
+
   FaCogs,
   FaLock,
   FaShieldAlt,
@@ -30,8 +29,22 @@ import {
   FaChrome,
   FaLaptopCode,
 } from "react-icons/fa";
-
 import {
+   SiCockroachlabs,SiTestinglibrary,
+  SiMongoose,
+  SiNginx, 
+  SiSocketdotio,
+   SiAuth0, 
+   SiJsonwebtokens, 
+   SiApachecassandra, 
+   SiVercel, 
+   SiNetlify, 
+   SiOracle, 
+  SiElasticsearch,
+   SiPm2, 
+   SiMariadb,
+  SiCanva,
+  SiTerraform,
   SiTypescript,
   SiJavascript,
   SiNextdotjs,
@@ -195,7 +208,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "React Query",
-    icon: SiReactquery,
+    icon: SiReactquery ,
     category: "Frontend",
     color: "#FF4154",
     description: "Server-state management and caching for React apps",
@@ -220,7 +233,7 @@ export const TECH_STACK: Tech[] = [
     level: 85,
     link: "https://mui.com",
   },
-    {
+  {
     name: "Sass",
     icon: FaSass,
     category: "Frontend",
@@ -268,7 +281,7 @@ export const TECH_STACK: Tech[] = [
     level: 90,
     link: "https://nodejs.org",
   },
-  { 
+  {
     name: "Express.js",
     icon: SiExpress,
     category: "Backend",
@@ -297,7 +310,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Mongoose",
-    icon: SiMongodb,
+    icon: SiMongoose,
     category: "Backend",
     color: "#f6e406",
     description: "ODM library to interact with MongoDB",
@@ -333,7 +346,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "REST API",
-    icon: SiExpress,
+    icon: TbApi,
     category: "Backend",
     color: "#FF6C37",
     description: "Representational State Transfer APIs",
@@ -342,7 +355,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "WebSockets / Socket.io",
-    icon: FaNodeJs,
+    icon: SiSocketdotio,
     category: "Backend",
     color: "#24C29F",
     description: "Real-time communication",
@@ -360,7 +373,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Nginx",
-    icon: FaLinux,
+    icon: SiNginx,
     category: "Backend",
     color: "#00fd60",
     description: "Web server & reverse proxy",
@@ -369,7 +382,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "BullMQ",
-    icon: FaNodeJs,
+    icon: LiaBullseyeSolid,
     category: "Backend",
     color: "#FF6600",
     description: "Job queue & task scheduler",
@@ -470,7 +483,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "CockroachDB",
-    icon: SiPostgresql,
+    icon:  SiCockroachlabs,
     category: "Database",
     color: "#007FFF",
     description: "Distributed SQL database",
@@ -488,7 +501,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Oracle DB",
-    icon: SiMysql,
+    icon: SiOracle,
     category: "Database",
     color: "#F80000",
     description: "Enterprise relational database",
@@ -497,7 +510,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Microsoft SQL Server",
-    icon: SiMysql,
+    icon: DiMsqlServer,
     category: "Database",
     color: "#F25022",
     description: "Enterprise relational database from Microsoft",
@@ -506,7 +519,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Apache Cassandra",
-    icon: SiMongodb,
+    icon: SiApachecassandra,
     category: "Database",
     color: "#00B0E8",
     description: "NoSQL wide-column store",
@@ -515,7 +528,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Elasticsearch",
-    icon: SiMongodb,
+    icon: SiElasticsearch,
     category: "Database",
     color: "#FED10A",
     description: "Search engine and analytics database",
@@ -562,7 +575,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Netlify",
-    icon: FaPalette,
+    icon: SiNetlify,
     category: "DevOps",
     color: "#00C7B7",
     description: "Frontend hosting & deployment",
@@ -571,7 +584,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Vercel",
-    icon: FaPalette,
+    icon: SiVercel,
     category: "DevOps",
     color: "#F5F5F5",
     description: "Deployment for Next.js & frontends",
@@ -609,7 +622,7 @@ export const TECH_STACK: Tech[] = [
   // ----------------------------- AUTH / SECURITY -----------------------------
   {
     name: "NextAuth.js",
-    icon: SiNextra,
+    icon: BsShieldLockFill,
     category: "Auth",
     color: "#00D8FF",
     description: "Authentication for Next.js apps",
@@ -627,7 +640,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Auth0",
-    icon: SiFirebase,
+    icon: SiAuth0,
     category: "Auth",
     color: "#EB5424",
     description: "Enterprise authentication platform",
@@ -636,7 +649,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "JWT / OAuth2",
-    icon: FaNodeJs,
+    icon: SiJsonwebtokens,
     category: "Auth",
     color: "#FF6F00",
     description: "Token-based authentication",
@@ -645,7 +658,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "SAML",
-    icon: FaNodeJs,
+    icon: FaLock,
     category: "Auth",
     color: "#c100ff",
     description: "Enterprise SSO protocol",
@@ -681,7 +694,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "API Security",
-    icon: FaShieldVirus,
+    icon: FaShieldAlt,
     category: "Auth",
     color: "#FF6F00",
     description: "Rate limiting, IP whitelisting & CORS policies",
@@ -710,7 +723,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "React Testing Library",
-    icon: FaReact,
+    icon: SiTestinglibrary,
     category: "Testing",
     color: "#61DAFB",
     description: "Testing React components",
@@ -739,7 +752,7 @@ export const TECH_STACK: Tech[] = [
   },
   {
     name: "Thunder Client",
-    icon: SiPostman,
+    icon: AiFillThunderbolt ,
     category: "Tools",
     color: "#FF6C37",
     description: "Lightweight API testing tool",
@@ -950,5 +963,5 @@ export const CATEGORY_CONFIG: Record<
     bgClass: "bg-gradient-to-r from-pink-500 to-rose-500",
     hoverClass: "hover:bg-pink-500/20",
   },
-  
+
 };
