@@ -1317,11 +1317,12 @@ export const CATEGORY_CONFIG: Record<
   },
 
   // ---------------- Cloud Platforms ----------------
- " Cloud Platforms": {
-    color: "#00BFFF", // deep sky blue
-    bgClass: "bg-gradient-to-r from-sky-400 to-cyan-500",
-    hoverClass: "hover:bg-sky-400/20",
-  },
+ "Cloud Platforms": {
+  color: "#1E90FF", 
+  bgClass: "bg-gradient-to-r from-blue-400 via-sky-500 to-cyan-500", 
+  hoverClass: "hover:bg-blue-500/30",
+},
+
 
   // ---------------- Version Control ----------------
   "Version Control": {
