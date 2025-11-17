@@ -1,3 +1,4 @@
+//D:\code\projects\portfolio\src\app\types\skills.ts
 export interface Tech {
   name: string;
   icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;

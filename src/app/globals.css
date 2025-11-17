@@ -765,7 +765,301 @@ button:focus-visible {
     transform: translateY(0) scale(1);
   }
 }
+/* ============================================
+   SMOOTH SCROLLING & PERFORMANCE OPTIMIZATIONS
+   ============================================ */
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed headers */
+}
+
+/* For browsers that support scroll-behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Hardware acceleration for common elements */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for transforms and animations */
+[class*="animate-"],
+[class*="transition-"],
+.motion-safe\:animate-,
+.motion-safe\:transition- {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize images and media */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lazy-loaded images */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS FOR COMMON ELEMENTS
+   ============================================ */
+
+/* Default smooth transitions */
+a,
+button,
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects */
+a:hover,
+button:hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states */
+*:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: outline 0.2s ease-in-out;
+}
+
+*:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR (Optional - Modern Look)
+   ============================================ */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 155, 155, 0.8);
+  background-clip: content-box;
+}
+
+/* ============================================
+   PREVENT LAYOUT SHIFT
+   ============================================ */
+
+/* Reduce layout shifts during page load */
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Contain layout shifts in specific sections */
+section,
+article,
+main {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* ============================================
+   OPTIMIZE RENDERING PERFORMANCE
+   ============================================ */
+
+/* Use CSS containment for better performance */
+.card,
+.tech-card,
+.project-card,
+[class*="card"] {
+  contain: layout style paint;
+}
+
+/* Optimize repaints */
+.sticky,
+.fixed,
+[class*="fixed"],
+[class*="sticky"] {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Remove will-change after animation completes */
+.animate-complete {
+  will-change: auto;
+}
+
+/* ============================================
+   REDUCE MOTION FOR ANIMATIONS
+   ============================================ */
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Smooth slide-in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ============================================
+   LINK & BUTTON OPTIMIZATIONS
+   ============================================ */
+
+/* Smooth color transitions */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Button hover effects */
+button,
+[role="button"] {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover,
+[role="button"]:hover {
+  transform: translateY(-2px);
+}
+
+button:active,
+[role="button"]:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   FRAMER MOTION PERFORMANCE BOOST
+   ============================================ */
+
+/* Optimize Framer Motion animations */
+[data-framer-component-type] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* ============================================
+   ADDITIONAL PERFORMANCE TWEAKS
+   ============================================ */
+
+/* Use contain for isolated components */
+.isolated-component {
+  contain: layout style paint;
+}
+
+/* Optimize text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection lag */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Touch action optimization for mobile */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+/* ============================================
+   Z-INDEX MANAGEMENT (Optional)
+   ============================================ */
+
+:root {
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+}
 /* ============================================
    CARD HOVER EFFECTS
    ============================================ */

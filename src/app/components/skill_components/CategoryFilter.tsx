@@ -3,6 +3,22 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { CATEGORY_CONFIG } from "@/app/data/techStack";
+import { 
+  FaCode, 
+  FaPalette, 
+  FaServer, 
+  FaDatabase, 
+  FaDocker, 
+  FaCloud, 
+  FaGitAlt, 
+  FaShieldAlt, 
+  FaFlask, 
+  FaDesktop,
+  FaTools,
+  FaPlug,
+  FaChartLine,
+  FaLayerGroup
+} from "react-icons/fa";
 
 interface CategoryFilterProps {
   categories: string[];
@@ -11,7 +27,25 @@ interface CategoryFilterProps {
   categoryCounts: Record<string, number>;
 }
 
-// Fixed: typed variants as Variants
+// Map category names to icons
+const CATEGORY_ICONS: Record<string, React.ComponentType<any>> = {
+  "All": FaLayerGroup,
+  "Languages": FaCode,
+  "Frontend": FaPalette,
+  "Backend": FaServer,
+  "Database": FaDatabase,
+  "DevOps": FaDocker,
+  "Cloud Platforms": FaCloud,
+  "Version Control": FaGitAlt,
+  "Auth": FaShieldAlt,
+  "Testing": FaFlask,
+  "Operating System": FaDesktop,
+  "Tools": FaTools,
+  "APIs Protocols": FaPlug,
+  "Analytics Monitoring": FaChartLine,
+  "Design": FaPalette,
+};
+
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: -20 },
   visible: {
@@ -56,8 +90,8 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
     const config = CATEGORY_CONFIG[cat];
     return isSelected
-      ? `${config.bgClass} text-white shadow-2xl border-transparent`
-      : `bg-white/5 ${config.hoverClass} text-white border-white/20 hover:border-white/40`;
+      ? `${config?.bgClass} text-white shadow-2xl border-transparent`
+      : `bg-white/5 ${config?.hoverClass} text-white border-white/20 hover:border-white/40`;
   };
 
   return (
@@ -71,6 +105,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
     >
       {categories.map((cat, index) => {
         const isSelected = selectedCategory === cat;
+        const IconComponent = CATEGORY_ICONS[cat] || FaLayerGroup;
 
         return (
           <motion.div key={cat} variants={itemVariants} className="relative">
@@ -107,12 +142,14 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                     duration: 1.5,
                     repeat: Infinity,
                     repeatDelay: 3,
-                    ease: "easeInOut"  // fix TS type
+                    ease: "easeInOut"
                   }}
                 />
               )}
 
               <span className="relative z-10 flex items-center gap-2">
+                {/* ✅ Icon before category name */}
+                <IconComponent className="w-4 h-4" />
                 {cat}
                 {cat !== "All" && (
                   <motion.span
