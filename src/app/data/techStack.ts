@@ -141,7 +141,7 @@ export const TECH_STACK: Tech[] = [
     category: "Languages",
     color: "#F7DF1E", 
     description: "High-level scripting language for web development",
-    level: 100,
+    level: 75,
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
@@ -150,7 +150,7 @@ export const TECH_STACK: Tech[] = [
     category: "Languages",
     color: "#3178C6",
     description: "JavaScript with static typing for scalable applications",
-    level: 100,
+    level: 75,
     link: "https://www.typescriptlang.org/",
   },
   {
@@ -159,7 +159,7 @@ export const TECH_STACK: Tech[] = [
     category: "Languages",
     color: "#faee05",
     description: "High-level programming language for automation and backend",
-    level: 100,
+    level: 75,
     link: "https://www.python.org/",
   },
   {
@@ -168,7 +168,7 @@ export const TECH_STACK: Tech[] = [
     category: "Languages",
     color: "#0379fc",
     description: "Low-level programming language for system development",
-    level: 100,
+    level: 50,
     link: "https://en.wikipedia.org/wiki/C_(programming_language)",
   },
   {
@@ -177,7 +177,7 @@ export const TECH_STACK: Tech[] = [
     category: "Languages",
     color: "#0379fc",
     description: "High-performance language for applications and systems",
-    level: 100,
+    level: 60,
     link: "https://isocpp.org/",
   },
   {
@@ -186,7 +186,7 @@ export const TECH_STACK: Tech[] = [
     category: "Languages",
     color: "#2f2cf5", 
     description: "Query language used to manage relational databases",
-    level: 100,
+    level: 80,
     link: "https://en.wikipedia.org/wiki/SQL",
   },
 
@@ -196,7 +196,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#E34F26",
     description: "Markup language for web pages",
-    level: 100,
+    level: 90,
     link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
@@ -205,7 +205,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#0096FF",
     description: "Styling the web with modern layouts",
-    level: 90,
+    level: 80,
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
@@ -223,7 +223,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#06B6D4",
     description: "Utility-first CSS framework",
-    level: 90,
+    level: 50,
     link: "https://tailwindcss.com",
   },
   {
@@ -232,7 +232,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#7952B3",
     description: "Popular CSS framework for responsive design",
-    level: 85,
+    level: 55,
     link: "https://getbootstrap.com",
   },
   {
@@ -241,7 +241,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#F7DF1E",
     description: "Core web programming language",
-    level: 85,
+    level: 75,
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
@@ -250,7 +250,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#3178C6",
     description: "Type-safe JavaScript",
-    level: 85,
+    level: 75,
     link: "https://www.typescriptlang.org",
   },
   {
@@ -259,7 +259,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#61DBFB",
     description: "Building interactive UIs",
-    level: 90,
+    level: 70,
     link: "https://react.dev",
   },
   {
@@ -268,7 +268,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#f5f2f2",
     description: "React framework for production",
-    level: 80,
+    level: 70,
     link: "https://nextjs.org",
   },
   {
@@ -277,7 +277,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#00C58E",
     description: "Vue.js framework for SSR, static sites, and powerful frontend apps",
-    level: 80,
+    level: 50,
     link: "https://nuxt.com",
   },
   {
@@ -286,7 +286,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#764ABC",
     description: "Centralized state management for React applications",
-    level: 70,
+    level: 50,
     link: "https://redux-toolkit.js.org/",
   },
   {
@@ -295,7 +295,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#FFDD00",
     description: "Minimalist state management for React and Next.js",
-    level: 80,
+    level: 50,
     link: "https://zustand-demo.pmnd.rs/",
   },
   {
@@ -304,7 +304,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#61DBFB",
     description: "Built-in state management for React applications",
-    level: 85,
+    level: 50,
     link: "https://react.dev/reference/react/createContext",
   },
   {
@@ -313,7 +313,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#0081CB",
     description: "React UI components",
-    level: 85,
+    level: 50,
     link: "https://mui.com",
   },
   {
@@ -322,7 +322,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#319795",
     description: "Accessible React component library",
-    level: 60,
+    level: 50,
     link: "https://chakra-ui.com",
   },
   {
@@ -331,7 +331,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#FCFC03",
     description: "Beautifully designed components built with Radix and Tailwind",
-    level: 85,
+    level: 55,
     link: "https://ui.shadcn.com",
   },
   {
@@ -358,7 +358,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#5A29E4",
     description: "HTTP client for API requests",
-    level: 88,
+    level: 70,
     link: "https://axios-http.com",
   },
   {
@@ -367,7 +367,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#FF4154",
     description: "Server-state management and caching for React apps",
-    level: 80,
+    level: 50,
     link: "https://tanstack.com/query/latest",
   },
   {
@@ -376,7 +376,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#EC5990",
     description: "Performant form validation for React",
-    level: 85,
+    level: 60,
     link: "https://react-hook-form.com",
   },
   {
@@ -385,7 +385,7 @@ export const TECH_STACK: Tech[] = [
     category: "Frontend",
     color: "#0055FF",
     description: "Smooth React animations",
-    level: 87,
+    level: 70,
     link: "https://www.framer.com/motion",
   },
   {
@@ -405,7 +405,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#44D62C",
     description: "JavaScript runtime for server-side",
-    level: 90,
+    level: 85,
     link: "https://nodejs.org",
   },
   {
@@ -414,7 +414,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#FFFFFF",
     description: "Fast web framework for Node",
-    level: 90,
+    level: 85,
     link: "https://expressjs.com",
   },
   {
@@ -423,7 +423,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#E0234E",
     description: "Scalable Node.js framework",
-    level: 85,
+    level: 70,
     link: "https://nestjs.com",
   },
   {
@@ -441,7 +441,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#00FFFF",
     description: "Modern Python async web framework",
-    level: 86,
+    level: 60,
     link: "https://fastapi.tiangolo.com",
   },
   {
@@ -450,7 +450,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#42a6f5",
     description: "Lightweight Python web framework (similar to FastAPI)",
-    level: 70,
+    level: 30,
     link: "https://flask.palletsprojects.com/",
   },
   {
@@ -459,7 +459,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#f6e406",
     description: "ODM library to interact with MongoDB",
-    level: 85,
+    level: 50,
     link: "https://mongoosejs.com/",
   },
   {
@@ -468,7 +468,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#5735fc",
     description: "Request validation library for Node.js/TypeScript APIs",
-    level: 75,
+    level: 40,
     link: "https://github.com/colinhacks/zod",
   },
   {
@@ -477,7 +477,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#F6C90E",
     description: "Password hashing for secure authentication",
-    level: 80,
+    level: 65,
     link: "https://github.com/kelektiv/node.bcrypt.js",
   },
   {
@@ -486,7 +486,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#00B0D7",
     description: "Authentication middleware for Node.js",
-    level: 75,
+    level: 50,
     link: "http://www.passportjs.org/",
   },
   {
@@ -495,7 +495,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#FF4500",
     description: "Security middleware for HTTP headers in Node.js",
-    level: 70,
+    level: 50,
     link: "https://helmetjs.github.io/",
   },
   {
@@ -504,7 +504,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#0096FF",
     description: "Middleware for enabling cross-origin requests",
-    level: 70,
+    level: 75,
     link: "https://github.com/expressjs/cors",
   },
   {
@@ -513,7 +513,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#FF6F00",
     description: "Middleware to limit repeated API requests",
-    level: 65,
+    level: 75,
     link: "https://github.com/nfriedly/express-rate-limit",
   },
   {
@@ -522,7 +522,7 @@ export const TECH_STACK: Tech[] = [
     category: "Backend",
     color: "#F44C27",
     description: "Middleware for handling multipart/form-data (file uploads)",
-    level: 70,
+    level: 60,
     link: "https://github.com/expressjs/multer",
   },
   {
@@ -559,7 +559,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#05b9f5",
     description: "Advanced relational database",
-    level: 87,
+    level: 85,
     link: "https://www.postgresql.org",
   },
   {
@@ -577,7 +577,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#1E90FF",
     description: "Lightweight relational database",
-    level: 80,
+    level: 70,
     link: "https://www.sqlite.org",
   },
   {
@@ -604,7 +604,7 @@ export const TECH_STACK: Tech[] = [
   category: "Database",
   color: "#05b9f5",
   description: "Serverless PostgreSQL-compatible cloud database",
-  level: 85,
+  level: 65,
   link: "https://neon.tech",
 },
 
@@ -623,7 +623,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#00ED64",
     description: "NoSQL document database",
-    level: 89,
+    level: 82,
     link: "https://www.mongodb.com",
   },
   {
@@ -650,7 +650,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#FF9900",
     description: "Fully managed NoSQL key-value and document database by AWS",
-    level: 70,
+    level: 40,
     link: "https://aws.amazon.com/dynamodb/",
   },
   {
@@ -659,7 +659,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#4BDDC8",
     description: "Next-gen ORM for Node & TS",
-    level: 90,
+    level: 70,
     link: "https://www.prisma.io",
   },
   {
@@ -677,7 +677,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#DC382D",
     description: "In-memory data structure store",
-    level: 50,
+    level: 40,
     link: "https://redis.io",
   },
   {
@@ -695,7 +695,7 @@ export const TECH_STACK: Tech[] = [
     category: "Database",
     color: "#2E90FA",
     description: "Time-series database built on PostgreSQL for metrics and analytics",
-    level: 60,
+    level: 40,
     link: "https://www.timescale.com/",
   },
   {
@@ -725,7 +725,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#1D63ED",
     description: "Containerization platform",
-    level: 50,
+    level: 40,
     link: "https://www.docker.com",
   },
   {
@@ -743,7 +743,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#326CE5",
     description: "Container orchestration",
-    level: 50,
+    level: 40,
     link: "https://kubernetes.io",
   },
   {
@@ -752,7 +752,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#8C77EB",
     description: "Infrastructure as code",
-    level: 30,
+    level: 40,
     link: "https://www.terraform.io",
   },
   {
@@ -761,7 +761,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#FF9900",
     description: "Cloud computing platform",
-    level: 50,
+    level: 40,
     link: "https://aws.amazon.com",
   },
   {
@@ -770,7 +770,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#FF6F00",
     description: "Continuous integration & deployment practices",
-    level: 80,
+    level: 50,
     link: "https://en.wikipedia.org/wiki/Continuous_integration",
   },
   {
@@ -779,7 +779,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#D33834",
     description: "CI/CD automation server",
-    level: 40,
+    level: 30,
     link: "https://www.jenkins.io",
   },
   {
@@ -788,7 +788,7 @@ export const TECH_STACK: Tech[] = [
     category: "DevOps",
     color: "#3399FF",
     description: "CI/CD pipelines on GitHub",
-    level: 80,
+    level: 70,
     link: "https://github.com/features/actions",
   },
 
@@ -799,7 +799,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#00D8FF",
     description: "Authentication for Next.js apps",
-    level: 85,
+    level: 75,
     link: "https://next-auth.js.org",
   },
   {
@@ -808,7 +808,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#FFCA28",
     description: "Auth & backend for apps",
-    level: 84,
+    level: 74,
     link: "https://firebase.google.com",
   },
   {
@@ -817,7 +817,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#EB5424",
     description: "Enterprise authentication platform",
-    level: 82,
+    level: 72,
     link: "https://auth0.com",
   },
   {
@@ -826,7 +826,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#FF6F00",
     description: "Token-based authentication",
-    level: 88,
+    level: 78,
     link: "https://jwt.io",
   },
   {
@@ -835,7 +835,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#c100ff",
     description: "Enterprise SSO protocol",
-    level: 80,
+    level: 40,
     link: "https://en.wikipedia.org/wiki/SAML",
   },
   {
@@ -844,7 +844,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#b40dea",
     description: "Role-based access control & permission management",
-    level: 82,
+    level: 80,
     link: "https://en.wikipedia.org/wiki/Role-based_access_control",
   },
   {
@@ -862,7 +862,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#07f0da",
     description: "Password hashing (bcrypt, Argon2) & TLS/SSL basics",
-    level: 85,
+    level: 75,
     link: "https://en.wikipedia.org/wiki/Cryptography",
   },
   {
@@ -871,7 +871,7 @@ export const TECH_STACK: Tech[] = [
     category: "Auth",
     color: "#FF6F00",
     description: "Rate limiting, IP whitelisting & CORS policies",
-    level: 82,
+    level: 80,
     link: "https://owasp.org/www-project-api-security/",
   },
   {
@@ -908,7 +908,7 @@ export const TECH_STACK: Tech[] = [
     category: "Testing",
     color: "#646CFF", // Vitest official purple
     description: "Fast unit testing framework for Vite projects",
-    level: 70,
+    level: 40,
     link: "https://vitest.dev",
   },
 
@@ -920,7 +920,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#F05032",
     description: "Version control and collaboration",
-    level: 95,
+    level: 80,
     link: "https://github.com",
   },
   {
@@ -929,7 +929,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#FC6D26",
     description: "Git repository hosting with CI/CD pipelines",
-    level: 80,
+    level: 50,
     link: "https://gitlab.com",
   },
 
@@ -940,7 +940,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#007ACC",
     description: "Lightweight, versatile code editor",
-    level: 95,
+    level: 85,
     link: "https://code.visualstudio.com",
   },
   {
@@ -976,7 +976,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#3DDC84",
     description: "IDE for Android app development",
-    level: 85,
+    level: 55,
     link: "https://developer.android.com/studio",
   },
   {
@@ -985,7 +985,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#FF9800",
     description: "Lightweight and fast code editor",
-    level: 80,
+    level: 50,
     link: "https://www.sublimetext.com",
   },
   {
@@ -1081,7 +1081,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#339933",
     description: "Node version management & REPL testing",
-    level: 85,
+    level: 75,
     link: "https://github.com/nvm-sh/nvm",
   },
   {
@@ -1090,7 +1090,7 @@ export const TECH_STACK: Tech[] = [
     category: "Tools",
     color: "#CB3837",
     description: "JavaScript package managers",
-    level: 90,
+    level: 70,
     link: "https://www.npmjs.com",
   },
 
@@ -1185,7 +1185,7 @@ export const TECH_STACK: Tech[] = [
     category: "APIs Protocols",
     color: "#FF9900",
     description: "Lightweight messaging protocol for IoT",
-    level: 50,
+    level: 40,
     link: "https://mqtt.org",
   },
   {
@@ -1203,7 +1203,7 @@ export const TECH_STACK: Tech[] = [
     category: "APIs Protocols",
     color: "#00BFFF",
     description: "Token-based authentication protocol",
-    level: 80,
+    level: 50,
     link: "https://oauth.net/2/",
   },
   // -----------------------OperatingSystem-----------------------------
@@ -1213,7 +1213,7 @@ export const TECH_STACK: Tech[] = [
     category: "Operating System",
     color: "#FCC624",
     description: "Open-source server & CLI environment",
-    level: 85,
+    level: 55,
     link: "https://www.linux.org",
   },
   {
@@ -1232,7 +1232,7 @@ export const TECH_STACK: Tech[] = [
     category: "Operating System",
     color: "#E95420",
     description: "Popular Linux distribution",
-    level: 80,
+    level: 50,
     link: "https://ubuntu.com",
   },
   // -----------------------VersionControl-----------------------------
@@ -1242,7 +1242,7 @@ export const TECH_STACK: Tech[] = [
     category: "Version Control",
     color: "#F05032",
     description: "Distributed version control system for tracking code changes",
-    level: 95,
+    level: 85,
     link: "https://git-scm.com",
   },
   {
@@ -1251,7 +1251,7 @@ export const TECH_STACK: Tech[] = [
     category: "Version Control",
     color: "#2DBA4E",
     description: "Cloud-based Git repository hosting and collaboration platform",
-    level: 95,
+    level: 85,
     link: "https://github.com",
   },
   {
