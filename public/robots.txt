@@ -1,0 +1,42 @@
+# *******************************************
+# Robots.txt for rajprem.vercel.app
+# *******************************************
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Allow specific bots (Google, Bing, etc.)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://rajprem.vercel.app/sitemap.xml

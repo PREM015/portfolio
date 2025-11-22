@@ -18,9 +18,28 @@ const tekoFont = Teko({
   display: "swap",
 });
 
+// ---------- SEO Metadata (add this to your layout.tsx or generate dynamically) ----------
 export const metadata: Metadata = {
-  title: "Prem raj",
-  description: "Prem Raj's Portfolio",
+  title: " Prem Raj | Full-Stack Developer & UI/UX Designer",
+  description: "Learn about Prem Raj, a passionate full-stack developer specializing in React, Next.js, TypeScript, Node.js, and modern web technologies. Based in India, creating scalable web applications.",
+  keywords: ["Prem Raj", "Full Stack Developer", "React Developer", "Next.js", "TypeScript", "Web Developer", "UI/UX Designer"],
+  authors: [{ name: "Prem Raj" }],
+  openGraph: {
+    title: "About Prem Raj | Full-Stack Developer",
+    description: "Full-stack developer crafting interactive, modern web experiences",
+    url: "https://rajprem.vercel.app/about",
+    siteName: "Prem Raj Portfolio",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Prem Raj | Full-Stack Developer",
+    description: "Full-stack developer crafting interactive, modern web experiences",
+    images: ["/og-image.jpg"],
+  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://rajprem.vercel.app/about" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

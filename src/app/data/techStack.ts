@@ -31,7 +31,7 @@ import {
   FaCss3Alt,
   FaLinux,
   FaBootstrap,
-
+FaJava,
   FaCogs,
   FaLock,
   FaShieldAlt,
@@ -162,6 +162,16 @@ export const TECH_STACK: Tech[] = [
     level: 75,
     link: "https://www.python.org/",
   },
+  {
+  name: "Java",
+  icon: FaJava,
+  category: "Languages",
+  color: "#ff0000",
+  description: "Object-oriented programming language widely used for enterprise applications, backend development, and Android.",
+  level: 50,
+  link: "https://www.java.com/",
+},
+
   {
     name: "C",
     icon: SiC,
