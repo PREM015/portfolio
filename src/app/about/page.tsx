@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import {
-  FaGithub, FaEnvelope, FaLinkedin, FaBrain, FaRocket,
+  FaGithub, FaEnvelope, FaLinkedin, FaBrain, FaRocket, FaChartLine ,
   FaTrophy, FaGem, FaGraduationCap, FaCertificate, FaAward,
   FaQuoteLeft, FaBullseye, FaCheckCircle, FaHeart,
   FaFire, FaSchool, FaMedal, FaPaintBrush,
@@ -1050,44 +1050,190 @@ export default function AboutPage() {
                 </motion.div>
               </div>
             </div>
-          </motion.div>          {/* 📊 GITHUB STATS */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <motion.span 
-                whileHover={{ scale: 1.1 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border-2 border-cyan-500/30 rounded-full text-cyan-400 font-bold text-sm mb-6 shadow-lg shadow-cyan-500/20"
-              >
-                <FaGlobe className="animate-spin" style={{ animationDuration: '3s' }} />
-                Live GitHub Statistics
-              </motion.span>
-              
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-                  Open Source Contributions
-                </span>
-              </h2>
-              
-              <motion.a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-3 text-xl text-gray-400 hover:text-cyan-400 transition-colors group"
-              >
-                <SiGithub className="text-3xl" />
-                <span className="font-mono">@{GITHUB_USERNAME}</span>
-                <FaExternalLinkAlt className="text-sm opacity-0 group-hover:opacity-100 transition-opacity" />
-              </motion.a>
-            </motion.div>
+          </motion.div>        
+         {/* 📊 GITHUB STATS */}
+<div>
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="text-center mb-16"
+  >
+    <motion.span 
+      whileHover={{ scale: 1.1 }}
+      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border-2 border-cyan-500/30 rounded-full text-cyan-400 font-bold text-sm mb-6 shadow-lg shadow-cyan-500/20"
+    >
+      <FaGlobe className="animate-spin" style={{ animationDuration: '3s' }} />
+      Live GitHub Statistics
+    </motion.span>
+    
+    <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6">
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+        Open Source Contributions
+      </span>
+    </h2>
+    
+    <motion.a
+      href={personalInfo.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.05 }}
+      className="inline-flex items-center gap-3 text-xl text-gray-400 hover:text-cyan-400 transition-colors group"
+    >
+      <SiGithub className="text-3xl" />
+      <span className="font-mono">@PREM015</span>
+      <FaExternalLinkAlt className="text-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+    </motion.a>
+  </motion.div>
 
-            <GitHubStats />
+  <GitHubStats />
+</div>
+
+{/* 🔥 GITHUB STREAK STATS - NEW SECTION */}
+<div>
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="text-center mb-16"
+  >
+    <motion.span 
+      whileHover={{ scale: 1.1, rotate: 5 }}
+      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm border-2 border-orange-500/30 rounded-full text-orange-400 font-bold text-sm mb-6 shadow-lg shadow-orange-500/20"
+    >
+      <FaFire className="animate-bounce" />
+      Coding Consistency
+    </motion.span>
+    
+    <h2 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6">
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">
+        GitHub Streak & Activity
+      </span>
+    </h2>
+    
+    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+      Consistency is key! Track my daily coding journey and commitment
+    </p>
+  </motion.div>
+
+  {/* Streak Stats Image */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.02, y: -10 }}
+    transition={{ type: "spring", stiffness: 300 }}
+    className="max-w-4xl mx-auto mb-12"
+  >
+    <div className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 p-[3px] rounded-3xl shadow-2xl hover:shadow-[0_0_60px_rgba(249,115,22,0.6)] transition-all">
+      <div className="bg-gray-900/95 backdrop-blur rounded-3xl p-8 sm:p-12">
+        
+        {/* Streak Stats Image */}
+        <div className="relative mb-8">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="relative overflow-hidden rounded-2xl"
+          >
+            <img
+              src="https://github-readme-streak-stats.herokuapp.com/?user=PREM015&theme=radical&hide_border=true&background=0D1117&ring=F97316&fire=F97316&currStreakLabel=F97316&sideLabels=F97316&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=9CA3AF"
+              alt="GitHub Streak Stats"
+              className="w-full h-auto"
+            />
+          </motion.div>
+        </div>
+
+        {/* Motivational Quote */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 text-center"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-orange-500/10 to-pink-500/10 border-2 border-orange-500/20 rounded-2xl backdrop-blur">
+            <FaBolt className="text-3xl text-yellow-400 animate-pulse" />
+            <p className="text-lg text-gray-300 font-semibold">
+              <span className="text-orange-400 font-black">"Consistency</span> beats talent when talent doesn't work hard"
+            </p>
           </div>
+        </motion.div>
 
+      </div>
+    </div>
+  </motion.div>
+
+  {/* GitHub Activity Graph */}
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.2 }}
+  >
+    <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-[3px] rounded-3xl shadow-2xl hover:shadow-[0_0_60px_rgba(168,85,247,0.6)] transition-all">
+      <div className="bg-gray-900/95 backdrop-blur rounded-3xl p-6 sm:p-8">
+        <h3 className="text-2xl sm:text-3xl font-black text-white mb-6 flex items-center gap-3">
+          <FaChartLine className="text-cyan-400" />
+          Contribution Activity
+        </h3>
+        
+        <div className="relative overflow-hidden rounded-2xl">
+          <img
+            src="https://github-readme-activity-graph.vercel.app/graph?username=PREM015&theme=react-dark&hide_border=true&bg_color=0D1117&color=F97316&line=F97316&point=FFFFFF&area=true&area_color=F97316"
+            alt="GitHub Activity Graph"
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </motion.div>
+
+  {/* GitHub Profile Trophy */}
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.3 }}
+    className="mt-12"
+  >
+   {/* GitHub Profile Stats Card */}
+<motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.3 }}
+  className="mt-12"
+>
+  <div className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 p-[3px] rounded-3xl shadow-2xl hover:shadow-[0_0_60px_rgba(234,179,8,0.6)] transition-all">
+    <div className="bg-gray-900/95 backdrop-blur rounded-3xl p-6 sm:p-8">
+      <h3 className="text-2xl sm:text-3xl font-black text-white mb-6 flex items-center gap-3">
+        <FaTrophy className="text-yellow-400 animate-bounce" />
+        GitHub Profile Stats
+      </h3>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* GitHub Stats Card */}
+        <div className="relative overflow-hidden rounded-2xl">
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=PREM015&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=F97316&icon_color=F97316&text_color=FFFFFF&count_private=true"
+            alt="GitHub Stats"
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* Top Languages Card */}
+        <div className="relative overflow-hidden rounded-2xl">
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=PREM015&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=F97316&text_color=FFFFFF"
+            alt="Top Languages"
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</motion.div>
+  </motion.div>
+</div>
           {/* 🎓 EDUCATION */}
           <div>
             <motion.div
