@@ -54,7 +54,7 @@ const personalInfo = {
   bio: "Passionate developer transforming ideas into elegant solutions. Specializing in modern web technologies with a focus on creating stunning, performant applications that users love.",
   location: "Bihar, India",
   email: "rprem3096@gmail.com",
-  github: `https://github.com/${GITHUB_USERNAME}`,
+  github: `https://github.com/PREM015`,
   linkedin: "https://linkedin.com/in/premraj",
   resumeUrl: "/resume/prem-raj-resume.pdf",
   logoUrl: "/logo.png" // Add your logo here
