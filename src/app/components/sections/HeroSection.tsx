@@ -78,7 +78,7 @@ const HeroSection = () => {
               { id: 2, name: "LinkedIn", image: "/svg/linkedin.svg", link: "https://www.linkedin.com/in/prem-r-2655a3302" },
               { id: 3, name: "Twitter", image: "/svg/twitter.svg", link: "https://twitter.com/premrajcodes" },
               { id: 4, name: "Instagram", image: "/svg/instagram.svg", link: "https://www.instagram.com/rajxdev07/" },
-              { id: 5, name: "coffe", image: "/svg/buy-me-a-coffee-svgrepo-com.svg", link: "https://buymeacoffee.com/premdev" },
+              { id: 5, name: "coffee", image: "/svg/buy-me-a-coffee-svgrepo-com.svg", link: "https://buymeacoffee.com/premdev" },
             ]}
           />
 
