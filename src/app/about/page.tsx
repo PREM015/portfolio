@@ -613,9 +613,9 @@ const GitHubStats = () => {
   useEffect(() => {
     const fetchGitHubStats = async () => {
       try {
-        const userRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+        const userRes = await fetch(`https://api.github.com/users/PREM015`);
         const userData = await userRes.json();
-        const reposRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`);
+        const reposRes = await fetch(`https://api.github.com/users/PREM015/repos?per_page=100`);
         const reposData = await reposRes.json();
         const totalStars = reposData.reduce((acc: number, repo: any) => acc + repo.stargazers_count, 0);
 
@@ -1135,7 +1135,7 @@ export default function AboutPage() {
             className="relative overflow-hidden rounded-2xl"
           >
             <img
-              src="https://github-readme-streak-stats.herokuapp.com/?user=PREM015&theme=radical&hide_border=true&background=0D1117&ring=F97316&fire=F97316&currStreakLabel=F97316&sideLabels=F97316&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=9CA3AF"
+              src="https://streak-stats.demolab.com/?user=prem015&theme=ocean-dark&hide_border=true&background=0D1117&ring=F97316&fire=F97316&currStreakLabel=F97316&sideLabels=F97316&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=9CA3AF"
               alt="GitHub Streak Stats"
               className="w-full h-auto"
             />
