@@ -1189,15 +1189,15 @@ export const TECH_STACK: Tech[] = [
   //   level: 40,
   //   link: "https://graphql.org",
   // },
-  // {
-  //   name: "MQTT",
-  //   icon: SiMqtt, // You can use an appropriate icon if available
-  //   category: "APIs Protocols",
-  //   color: "#FF9900",
-  //   description: "Lightweight messaging protocol for IoT",
-  //   level: 40,
-  //   link: "https://mqtt.org",
-  // },
+  {
+    name: "MQTT",
+    icon: SiMqtt, // You can use an appropriate icon if available
+    category: "APIs Protocols",
+    color: "#FF9900",
+    description: "Lightweight messaging protocol for IoT",
+    level: 40,
+    link: "https://mqtt.org",
+  },
   {
     name: "Postman",
     icon: SiPostman,
