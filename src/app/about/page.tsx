@@ -24,7 +24,8 @@ FaPalette, FaHandsHelping, FaChess,
 import { 
   SiGithub, SiLinkedin, SiReact, SiNextdotjs, SiTailwindcss,
   SiTypescript, SiJavascript, SiPython, SiNodedotjs, SiMongodb,
-  SiPostgresql, SiDocker, SiFigma, SiGit
+  SiPostgresql, SiDocker, SiFigma, SiGit,
+  SiGeeksforgeeks
 } from "react-icons/si";
 import { SlDiamond } from "react-icons/sl";
 import { HiMiniSparkles } from "react-icons/hi2";
@@ -145,27 +146,26 @@ const education = [
 const certifications = [
   { 
     id: 1,
-    title: "Meta Front-End Developer Professional", 
-    issuer: "Meta",
-    platform: "Coursera",
-    date: "January 2024",
-    credentialId: "COURSERA-META-FE-2024",
-    credentialUrl: "https://coursera.org/verify/ABC123",
-    pdfUrl: "/certificates/meta-frontend.pdf",
-    icon: SiReact, 
+    title: "Greeks for Greeks ", 
+    issuer: "GFG",
+    platform: "GFG",
+    date: "AUG 2025",
+    credentialId: "31e2e3c60a9f76e140e07c2140e10262",
+    credentialUrl: "https://https://media.geeksforgeeks.org/courses/certificates/31e2e3c60a9f76e140e07c2140e10262.pdf.org/verify/ABC123",
+    pdfUrl: "/certificates/gfg certificates.pdf",
+    icon: SiGeeksforgeeks, 
     color: "from-blue-500 via-cyan-500 to-teal-500",
     glowColor: "shadow-cyan-500/50",
     duration: "6 months",
-    skills: ["React.js", "JavaScript ES6+", "HTML5/CSS3", "Responsive Design"],
-    description: "Comprehensive front-end development program covering modern React development and professional workflows.",
+    skills: ["DSA", "CPP", "PROBLEM SOLVING", "ALGORITHM"],
+    description: "PROBLEM SOLVING SKILS",
     highlights: [
-      "Built 8+ real-world projects",
-      "Mastered React Hooks & Context API",
-      "Professional Git workflows",
-      "Responsive, accessible UIs"
+      "DSA BOOSTUP ",
+      "REAL PROBLEM SOLVING ",
+     
     ],
     verified: true,
-    projects: 8
+   
   },
   { 
     id: 2,
