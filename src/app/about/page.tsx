@@ -29,6 +29,7 @@ import {
 } from "react-icons/si";
 import { SlDiamond } from "react-icons/sl";
 import { HiMiniSparkles } from "react-icons/hi2";
+import { TbBrandCpp } from "react-icons/tb";
 // ==================== ROTATING QUOTES ====================
 const inspirationalQuotes = [
   { text: "First, solve the problem. Then, write the code.", author: "John Johnson" },
@@ -169,51 +170,49 @@ const certifications = [
   },
   { 
     id: 2,
-    title: "Full-Stack Web Development Bootcamp", 
-    issuer: "freeCodeCamp",
-    platform: "freeCodeCamp",
-    date: "October 2023",
-    credentialId: "FCC-FULLSTACK-2023",
-    credentialUrl: "https://freecodecamp.org/certification/premraj",
-    pdfUrl: "/certificates/freecodecamp.pdf",
-    icon: FaCode, 
+    title: "Cpp Training-Certificate", 
+    issuer: "IIT Bombay",
+    platform: "Spoken Tutorial",
+    date: "MAY 2023",
+    credentialId: "3034018LQG",
+  
+    pdfUrl: "/certificates/Cpp Training-PREM-RAJ-Participant-Certificate.pdf",
+    icon: TbBrandCpp, 
     color: "from-green-500 via-emerald-500 to-teal-500",
     glowColor: "shadow-emerald-500/50",
-    duration: "300 hours",
-    skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
-    description: "Intensive full-stack development curriculum covering the complete MERN stack.",
+   
+    skills: ["CPP"],
+    description: "Intensive cpp curriculum covering the cpp .",
     highlights: [
-      "Built 15+ full-stack applications",
-      "Secure authentication systems",
-      "RESTful API development",
-      "Production deployments"
+      "cpp knowleged",
+     
     ],
     verified: true,
-    projects: 15
+
   },
   { 
     id: 3,
-    title: "Advanced React & Next.js Masterclass", 
-    issuer: "Udemy",
-    platform: "Udemy",
-    date: "November 2023",
-    credentialId: "UC-REACT-NEXTJS-2023",
-    credentialUrl: "https://udemy.com/certificate/UC-456789/",
-    pdfUrl: "/certificates/react-nextjs.pdf",
-    icon: SiNextdotjs, 
+    title: "Python Training-Certificate", 
+    issuer: "IIT Bombay",
+    platform: "Spoken Tutorialmy",
+    date: "FEB 2023",
+    credentialId: "30340189IE",
+   
+    pdfUrl: "/certificates/PREM-RAJ-Participant-Certificate (1) Python 3.4.3.pdf",
+    icon: SiPython, 
     color: "from-purple-500 via-pink-500 to-rose-500",
     glowColor: "shadow-purple-500/50",
-    duration: "42 hours",
-    skills: ["Next.js 14", "React 18", "TypeScript", "Server Components"],
-    description: "Deep dive into modern Next.js with App Router and Server Components.",
+  
+    skills: ["PYTHON"],
+    description: "Deep dive into modern PYTHON with  Components.",
     highlights: [
-      "Next.js 14 App Router mastery",
-      "SSR & SSG applications",
-      "Server Actions implementation",
-      "Core Web Vitals optimization"
+      " mastery",
+      " applications",
+      " Actions implementation",
+      "Core  optimization"
     ],
     verified: true,
-    projects: 6
+   
   },
   { 
     id: 4,
