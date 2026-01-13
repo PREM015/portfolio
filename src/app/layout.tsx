@@ -4,7 +4,8 @@ import { Metadata } from "next";
 import { Permanent_Marker, Teko } from "next/font/google";
 import Navbar from "@/app/components/common/Navbar";
 import Footer from "@/app/components/common/Footer";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // ✅ Load Google Fonts
 const markerFont = Permanent_Marker({
@@ -52,7 +53,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Footer />
         </main>
-         <Analytics />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
