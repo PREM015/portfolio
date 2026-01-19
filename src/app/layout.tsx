@@ -1,5 +1,6 @@
 // 📁 src/app/layout.tsx
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Metadata } from "next";
 import { Permanent_Marker, Teko } from "next/font/google";
 import Navbar from "@/app/components/common/Navbar";
@@ -19,7 +20,7 @@ const tekoFont = Teko({
   display: "swap",
 });
 
-// ---------- SEO Metadata (add this to your layout.tsx or generate dynamically) ----------
+
 export const metadata: Metadata = {
   title: " Prem Raj | Full-Stack Developer & UI/UX Designer",
   description: "Learn about Prem Raj, a passionate full-stack developer specializing in React, Next.js, TypeScript, Node.js, and modern web technologies. Based in India, creating scalable web applications.",
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </main>
          <Analytics />
+         <SpeedInsights/>
       </body>
     </html>
   );

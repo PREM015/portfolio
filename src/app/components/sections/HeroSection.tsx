@@ -114,8 +114,8 @@ const HeroSection = () => {
         </div>
 
         {/* 🖼️ Right Column (Profile Image Blob) */}
-        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-14 lg:mt-0 px-4">
-          <div className="relative group isolate w-[260px] sm:w-[320px] md:w-[400px] aspect-[5/6] bg-gradient-to-br from-[#5B21B6] via-[#7C3AED] to-[#8B5CF6] rounded-[34%_66%_58%_42%/40%_30%_70%_60%] p-1 shadow-[0_0_60px_#9333ea] transition-all duration-700 overflow-hidden border border-purple-500/50 animate-slowspin">
+        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-12 lg:mt-0 px-4">
+          <div className="relative group isolate w-[360px] sm:w-[320px] md:w-[400px] aspect-[3/4] bg-gradient-to-br from-[#5B21B6] via-[#7C3AED] to-[#8B5CF6] rounded-[34%_66%_58%_42%/40%_30%_70%_60%] p-1 shadow-[0_0_60px_#9333ea] transition-all duration-700 overflow-hidden border border-purple-500/50 animate-slowspin">
             <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] ring-4 ring-[#c084fc]/40 animate-pulse-slow z-0"></div>
             <div className="absolute inset-0 rounded-[34%_66%_58%_42%/40%_30%_70%_60%] border-[1.5px] border-white/10 backdrop-blur-xl z-10 pointer-events-none" />
             <div className="absolute -top-10 left-10 w-24 h-24 bg-purple-400 opacity-30 blur-2xl rounded-full animate-float z-0" />
@@ -123,10 +123,10 @@ const HeroSection = () => {
 
             {/* Profile Image */}
             <Image
-              src="/image/profile3.png"
+              src="/image/swag.png"
               alt="Prem Raj"
               fill
-              className="object-cover rounded-[34%_66%_58%_42%/40%_30%_70%_60%] scale-[1.12] group-hover:scale-[1.18] brightness-110 saturate-150 transition-all duration-700 ease-in-out z-20 relative"
+              className=" object-cover object-top  rounded-[34%_66%_58%_42%/40%_30%_70%_60%] scale-[0.98] group-hover:scale-[1.18] brightness-110 saturate-150 transition-all duration-700 ease-in-out z-20 relative"
               priority
             />
           </div>

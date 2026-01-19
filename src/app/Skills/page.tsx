@@ -4,7 +4,6 @@ import React, {
   useState,
   useMemo,
   useEffect,
-  
   Suspense,
   lazy,
 } from "react";
@@ -32,11 +31,11 @@ const Skills: React.FC = () => {
     setIsPageLoaded(true);
   }, []);
 
-// Debounced search function
-const debouncedSearch = useMemo(
-  () => debounce((value: string) => setSearch(value), 200),
-  []
-);
+  // Debounced search function
+  const debouncedSearch = useMemo(
+    () => debounce((value: string) => setSearch(value), 200),
+    []
+  );
 
   const filteredTech = useMemo(
     () =>
@@ -246,9 +245,17 @@ const debouncedSearch = useMemo(
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
             >
-              {filteredTech.map((tech, idx) => (
-                <SkillCard key={tech.name} tech={tech} idx={idx} />
-              ))}
+              {filteredTech.map((tech, idx) => {
+                const uniqueKey = `${tech.name}-${tech.category}-${idx}`;
+
+                return (
+                  <SkillCard
+                    key={uniqueKey}
+                    tech={{ ...tech, id: uniqueKey }}
+                    idx={idx}
+                  />
+                );
+              })}
             </motion.div>
           ) : (
             <motion.div
