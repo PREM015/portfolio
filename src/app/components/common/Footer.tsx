@@ -40,19 +40,19 @@ const Footer = () => {
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
   ];
-const quickLinks = [
-  { href: "/Skills", label: "Services" },
-  { href: "/Skills", label: "Skills" },   
-  { href: "/files/Prem.pdf", label: "Resume", target: "_blank", rel: "noopener noreferrer" },
-  { href: "/faq", label: "FAQs" },       
-];
+  const quickLinks = [
+    { href: "/Skills", label: "Services" },
+    { href: "/Skills", label: "Skills" },
+    { href: "/files/Prem.pdf", label: "Resume", target: "_blank", rel: "noopener noreferrer" },
+    { href: "/faq", label: "FAQs" },
+  ];
 
 
   return (
-    <footer className="relative w-full overflow-hidden bg-black text-gray-200 mt-20">
+    <footer className="relative z-50 w-full overflow-hidden bg-black text-gray-200">
       <Vortex
         backgroundColor="black"
-        className="flex flex-col items-center justify-center w-full px-4 py-20"
+        className="flex flex-col items-center justify-center w-full px-4 pt-10 pb-8"
         containerClassName="w-full max-w-7xl mx-auto relative"
         particleCount={600}
         baseHue={210}

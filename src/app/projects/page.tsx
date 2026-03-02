@@ -1,196 +1,122 @@
 "use client";
 
-import React from "react";
-import { LampContainer } from "@/app/components/ui/lamp";
-import Image from "next/image";
-import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-// -------------------------------
-// Types
-// -------------------------------
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tech: string[];
-  link: string;
-}
+// Components
+import ImmersiveBackground from "../components/project/ImmersiveBackground";
+import AnimatedPageBorder from "../components/project/AnimatedPageBorder";
+import PageHeader from "../components/project/PageHeader";
+import CategoryFilter from "../components/project/CategoryFilter";
+import ProjectsFooter from "../components/project/ProjectsFooter";
 
-// -------------------------------
-// Projects Data
-// -------------------------------
-const projects: Project[] = [
-  {
-    title: "Portfolio Website",
-    description:
-      "Modern developer portfolio built with Next.js, Tailwind CSS and Framer Motion.",
-    image: "/image/portfolio.png",
-    tech: ["Next.js", "Tailwind", "TypeScript"],
-    link: "/",
-  },
-  {
-    title: "Music App",
-    description: "Spotify-like app featuring audio streaming, search, and playlists.",
-    image: "/image/musicapp.png",
-    tech: ["React", "Tailwind", "Shadcn UI"],
-    link: "/",
-  },
-  {
-    title: "E-Commerce UI",
-    description: "Responsive UI with filtering, transitions and animations.",
-    image: "/image/ecommerce.png",
-    tech: ["React", "Framer Motion", "CSS Modules"],
-    link: "/",
-  },
-  {
-    title: "Open Source CLI",
-    description: "CLI tool with zero dependencies and blazing speed.",
-    image: "/image/cli.png",
-    tech: ["Node.js", "TypeScript"],
-    link: "/",
-  },
-];
+// Cards
+import PortfolioCard from "../components/project/cards/PortfolioCard";
+import VriddhiCard from "../components/project/cards/VriddhiCard";
+import StudentAppCard from "../components/project/cards/StudentAppCard";
+import ReactIconsCard from "../components/project/cards/ReactIconsCard";
+import VSCodeExtensionCard from "../components/project/cards/VSCodeExtensionCard";
+import NPMPackageCard from "../components/project/cards/NPMPackageCard";
+import SolarSystemCard from "../components/project/cards/SolarSystemCard";
+import SelectionSortCard from "../components/project/cards/SelectionSortCard";
+import PlaceholderCard from "../components/project/cards/PlaceholderCard";
 
-// -------------------------------
-// Motion Variants
-// -------------------------------
-const containerVariants: Variants = {
-  animate: {
-    transition: { staggerChildren: 0.15 },
-  },
+// Data & Types
+import { projects } from "../components/project/data";
+import { Project } from "../components/project/types";
+
+const renderCard = (project: Project) => {
+  switch (project.id) {
+    case "portfolio": return <PortfolioCard project={project} />;
+    case "vriddhi": return <VriddhiCard project={project} />;
+    case "student-app": return <StudentAppCard project={project} />;
+    case "react-icons": return <ReactIconsCard project={project} />;
+    case "vscode-extension": return <VSCodeExtensionCard project={project} />;
+    case "npm-package": return <NPMPackageCard project={project} />;
+    case "solar-system": return <SolarSystemCard project={project} />;
+    case "selection-sort": return <SelectionSortCard project={project} />;
+    default: return <PlaceholderCard project={project} />;
+  }
 };
 
-const cardVariants: Variants = {
-  initial: { opacity: 0, y: 50, scale: 0.95 },
-  animate: { opacity: 1, y: 0, scale: 1 },
-  hover: {
-    scale: 1.05,
-    rotateX: -3,
-    rotateY: 3,
-    transition: { type: "spring", stiffness: 250, damping: 20 },
-  },
-};
-
-const tagVariants: Variants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-};
-
-// -------------------------------
-// Project Card Component
-// -------------------------------
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <motion.article
-    variants={cardVariants}
-    initial="initial"
-    whileInView="animate"
-    whileHover="hover"
-    viewport={{ once: true }}
-    role="region"
-    aria-labelledby={`${project.title}-title`}
-    tabIndex={0}
-    className="bg-neutral-900/50 backdrop-blur-xl border border-neutral-800 rounded-2xl shadow-xl p-4 sm:p-5 hover:shadow-cyan-500/40 hover:border-cyan-400 transition-transform duration-300 focus-within:ring-2 focus-within:ring-cyan-400 focus:outline-none"
-  >
-    {/* Project Image */}
-    <div className="relative w-full h-48 sm:h-52 mb-3 rounded-xl overflow-hidden border border-neutral-700 shadow-inner">
-      <Image
-        src={project.image}
-        alt={`Screenshot of ${project.title}`}
-        fill
-        className="object-cover hover:scale-105 transition-transform duration-300"
-        priority
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-    </div>
-
-    {/* Project Title */}
-    <h3
-      id={`${project.title}-title`}
-      className="text-lg sm:text-xl font-bold text-white mb-2 drop-shadow-lg"
-    >
-      {project.title}
-    </h3>
-
-    {/* Project Description */}
-    <p className="text-gray-300 text-sm sm:text-base mb-3">{project.description}</p>
-
-    {/* Tech Tags */}
-    <motion.div
-      className="flex flex-wrap gap-2 mb-3"
-      aria-label={`Technologies used in ${project.title}`}
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-    >
-      {project.tech.map((tech) => (
-        <motion.span
-          key={tech}
-          variants={tagVariants}
-          className="text-[10px] sm:text-xs px-2 py-1 rounded-full font-semibold cursor-default 
-                     bg-cyan-800/40 text-cyan-300 hover:bg-cyan-700/50 hover:text-white transition"
-        >
-          {tech}
-        </motion.span>
-      ))}
-    </motion.div>
-
-    {/* View Project Link */}
-    <Link
-      href={project.link}
-      className="inline-block mt-1 text-sm font-medium text-cyan-400 hover:text-cyan-200 transition focus:outline-none focus:ring-1 focus:ring-cyan-400 rounded"
-      aria-label={`View the ${project.title} project`}
-      tabIndex={0}
-    >
-      View Project →
-    </Link>
-  </motion.article>
-);
-
-// -------------------------------
-// Projects Page
-// -------------------------------
 const ProjectsPage: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
+
+  const filteredProjects = projects.filter(project => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "webapp") return ["webapp", "frontend", "portfolio"].includes(project.type);
+    if (activeFilter === "opensource") return project.type === "opensource";
+    if (activeFilter === "tools") return ["extension", "npm", "algorithm", "threejs"].includes(project.type);
+    return true;
+  });
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <motion.div className="text-6xl" animate={{ rotate: 360 }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}>✦</motion.div>
+      </div>
+    );
+  }
+
   return (
-    <main className="bg-gradient-to-b from-black via-slate-950 to-black w-full min-h-screen">
-      {/* Header with Neon Glow */}
-      <LampContainer className="px-4 md:px-10 pt-20 pb-10">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-orbitron text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-center drop-shadow-lg"
-        >
-          My Projects
-        </motion.h1>
+    <main className="flex-1 flex flex-col bg-black w-full">
+      <ImmersiveBackground />
+      <AnimatedPageBorder />
 
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-3 text-neutral-400 max-w-md mx-auto text-sm sm:text-base text-center"
-        >
-          A showcase of modern apps, UI experiments, and open-source tools I’ve built using
-          cutting-edge technologies.
-        </motion.p>
-      </LampContainer>
+      <div className="relative z-10">
+        {/* Hero Header */}
+        <PageHeader />
 
-      {/* Projects Grid */}
-      <section
-        aria-label="Project portfolio"
-        className="relative w-full px-4 md:px-10 -mt-6 pb-14"
-      >
-        <motion.div
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </motion.div>
-      </section>
+        {/* Projects + Footer — single section, zero gap */}
+        <div className="px-4 md:px-8 lg:px-16">
+          {/* Category Filter */}
+          <CategoryFilter activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
+
+          {/* Projects Grid */}
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10 lg:gap-12 max-w-[1400px] mx-auto"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.35, delay: index * 0.06 }}
+                >
+                  {renderCard(project)}
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* No Results */}
+          {filteredProjects.length === 0 && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
+              <div className="text-5xl mb-4">🔍</div>
+              <h3 className="text-xl font-bold text-white mb-2">No projects found</h3>
+              <p className="text-gray-400 mb-4">Try selecting a different category</p>
+              <button
+                onClick={() => setActiveFilter("all")}
+                className="px-6 py-2 bg-cyan-500/20 text-cyan-400 rounded-full border border-cyan-500/30 hover:bg-cyan-500/30 transition-colors"
+              >
+                ✦ Show All Projects
+              </button>
+            </motion.div>
+          )}
+
+          {/* Footer CTA — directly below grid, consistent padding */}
+          <div className="pt-24 pb-12">
+            <ProjectsFooter />
+          </div>
+        </div>
+      </div>
     </main>
   );
 };

@@ -52,11 +52,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main className="flex-1 pt-[90px] w-full z-10 relative">
           {children}
-          <Footer />
         </main>
+        <Footer />
 
-         
-         <SpeedInsights/>
+
+        <SpeedInsights />
         <Analytics />
         <SpeedInsights />
 
