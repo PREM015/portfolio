@@ -27,6 +27,7 @@ import {
   SiPrisma,
   SiFirebase,
 } from "react-icons/si";
+import ParticleBackground from "../components/ui/ParticleBackground";
 
 // Highlights
 const highlights = [
@@ -146,7 +147,7 @@ export default function OpenToWorkPage() {
   );
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 text-white overflow-hidden py-12 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
+    <section className="relative min-h-screen bg-linear-to-br from-gray-950 via-black to-gray-900 text-white overflow-hidden py-12 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
       {/* Optimized background glow blobs - conditional animation */}
       {!prefersReducedMotion && (
         <>
@@ -156,7 +157,7 @@ export default function OpenToWorkPage() {
             transition={{ repeat: Infinity, duration: 40, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute bottom-[-100px] sm:bottom-[-200px] right-[-75px] sm:right-[-150px] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-pink-500 opacity-20 sm:opacity-30 blur-3xl pointer-events-none"
+            className="absolute bottom-[-100px] sm:bottom-[-200px] right-[-75px] sm:right-[-150px] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-linear-to-r from-blue-600 via-indigo-500 to-pink-500 opacity-20 sm:opacity-30 blur-3xl pointer-events-none"
             animate={{ scale: [1, 0.7, 1], rotate: [0, -120, 0] }}
             transition={{ repeat: Infinity, duration: 45, ease: "easeInOut" }}
           />
@@ -167,6 +168,7 @@ export default function OpenToWorkPage() {
       {prefersReducedMotion && (
         <>
           <div className="absolute top-[-100px] sm:top-[-200px] left-[-75px] sm:left-[-150px] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-purple-600 opacity-20 sm:opacity-30 blur-3xl pointer-events-none" />
+         
           <div className="absolute bottom-[-100px] sm:bottom-[-200px] right-[-75px] sm:right-[-150px] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-pink-500 opacity-20 sm:opacity-30 blur-3xl pointer-events-none" />
         </>
       )}
@@ -493,9 +495,7 @@ export default function OpenToWorkPage() {
         variants={fadeInUpVariants}
         className="text-center mt-16 sm:mt-20 pt-8 border-t border-white/5"
       >
-        <p className="text-xs sm:text-sm text-neutral-500 px-4">
-          © {new Date().getFullYear()} Prem. Built with React, Next.js & Tailwind CSS
-        </p>
+       
       </motion.footer>
     </section>
   );

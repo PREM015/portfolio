@@ -41,13 +41,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
   return (
-    <section className="relative py-20 px-6 sm:px-10 md:px-16 bg-gradient-to-b from-gray-900 via-black to-gray-950 text-white overflow-hidden">
+    <section className="relative py-20 px-6 sm:px-10 md:px-16 bg-linear-to-b from-gray-900 via-black to-gray-950 text-white overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_70%)] pointer-events-none" />
       <div className="absolute -top-20 -left-10 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-pulse" />
 
       <motion.h2
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 text-transparent bg-clip-text"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 bg-linear-to-r from-cyan-400 via-blue-500 to-indigo-400 text-transparent bg-clip-text"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -56,7 +56,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       </motion.h2>
 
       <motion.div
-        className="relative max-w-3xl mx-auto bg-gradient-to-br from-gray-800/50 to-gray-900/70 border border-white/10 rounded-3xl shadow-2xl backdrop-blur-xl p-10 transition-all hover:scale-[1.02]"
+        className="relative max-w-3xl mx-auto bg-linear-to-br from-gray-800/50 to-gray-900/70 border border-white/10 rounded-3xl shadow-2xl backdrop-blur-xl p-10 transition-all hover:scale-[1.02]"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
@@ -99,7 +99,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             type="submit"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 mt-2 font-semibold text-lg rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 shadow-lg shadow-blue-500/25 transition-all"
+            className="px-8 py-4 mt-2 font-semibold text-lg rounded-xl bg-linear-to-r from-cyan-500 via-blue-600 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 shadow-lg shadow-blue-500/25 transition-all"
           >
             Send Message
           </motion.button>
