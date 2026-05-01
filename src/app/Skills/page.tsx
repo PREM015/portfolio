@@ -218,7 +218,7 @@ const Skills: React.FC = () => {
         />
 
         {/* Results count */}
-        <motion.div
+        {/* <motion.div
           key={filteredTech.length}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -232,7 +232,7 @@ const Skills: React.FC = () => {
             </span>{" "}
             {filteredTech.length === 1 ? "skill" : "skills"}
           </p>
-        </motion.div>
+        </motion.div> */}
 
         {/* Skills Grid */}
         <AnimatePresence mode="wait">

@@ -112,7 +112,7 @@ const PageHeader: React.FC = () => {
         >
           {[
             {
-              value: "8+",
+              value: "8",
               label: "Projects",
               icon: "📁",
               color: "text-cyan-400",
@@ -123,18 +123,8 @@ const PageHeader: React.FC = () => {
               icon: "⚡",
               color: "text-purple-400",
             },
-            {
-              value: "1M+",
-              label: "Impact Reach",
-              icon: "🌍",
-              color: "text-pink-400",
-            },
-            {
-              value: "100%",
-              label: "Passion",
-              icon: "❤️",
-              color: "text-orange-400",
-            },
+           
+            
           ].map((stat, i) => (
             <div key={i} className="text-center group">
               <motion.div

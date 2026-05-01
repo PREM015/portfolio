@@ -53,7 +53,7 @@ interface Achievement {
 const achievements: Achievement[] = [
   {
     icon: <FaProjectDiagram className="text-cyan-400 text-5xl mb-4" aria-hidden="true" />,
-    title: "10+ Projects Completed",
+    title: "8 Projects Completed",
     description: "Delivered full-stack web applications with React, Next.js, and Tailwind CSS.",
     stats: [{ label: "Projects", value: 10 }],
     tech: ["React", "Next.js", "Tailwind CSS", "Prisma"],
@@ -62,7 +62,7 @@ const achievements: Achievement[] = [
   },
   {
     icon: <FaUsers className="text-green-400 text-5xl mb-4" aria-hidden="true" />,
-    title: "5+ Happy Clients",
+    title: " Happy Clients",
     description: "Worked with clients across eCommerce, dashboards, and SaaS projects.",
     stats: [{ label: "Clients", value: 5 }],
     tech: ["Communication", "Agile", "Teamwork"],

@@ -603,8 +603,8 @@ const ProjectsSection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             {[
-              { icon: "🚀", value: "15+", title: "Projects" },
-              { icon: "⚡", value: "3+", title: "Years" },
+              { icon: "🚀", value: "8", title: "Projects" },
+              { icon: "⚡", value: "2+", title: "Years" },
               { icon: "💯", value: "100%", title: "Passion" },
             ].map((stat, i) => (
               <MiniFeatureCard key={i} {...stat} />
